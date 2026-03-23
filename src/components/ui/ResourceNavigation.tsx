@@ -11,9 +11,9 @@ const ResourceNavigation = ({
     <nav className="flex flex-col gap-y-5">
       <span className="text-xl font-medium uppercase">{resourceType}</span>
       <ul className="flex flex-col gap-y-1">
-        {resources.map((res) => {
+        {resources.map((res, i) => {
           return (
-            <li>
+            <li key={i}>
               <Link
                 to={res.destination}
                 className="text-[#4b5563] text-sm text-nowrap">

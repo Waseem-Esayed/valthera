@@ -8,47 +8,28 @@ import products from "../mock-data/products";
 
 const CollectionPage = () => {
   // const allCollections = useSelector((state) => state.products);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const filterCategories = searchParams.get("categories")?.split(",") ?? [];
   const initialProducts = products;
   const [sortKey, setSortKey] = useState("high-to-low");
   const sortedProducts = [...initialProducts].sort((a, b) => {
     return sortKey === "high-to-low" ? b.price - a.price : a.price - b.price;
   });
 
-  const [seachParams, setSeachParams] = useSearchParams();
-  const [appliedFilters, setAppliedFilters] = useState(
-    Object.fromEntries(seachParams),
-  );
+  let sortedArray = [] as ProductType[];
 
-  const categories = appliedFilters.categories.split(",") || [];
-  let catSorted = [] as ProductType[];
-  categories.forEach((cat) => {
-    const sortedArray = sortedProducts.filter(
-      (product) => product.category === cat,
-    );
-    if (catSorted.length > 0) {
-      catSorted.push(...sortedArray);
-    } else {
-      catSorted = sortedProducts;
-    }
-  });
+  if (filterCategories.length > 0) {
+    filterCategories.forEach((cat) => {
+      const holderArray = sortedProducts.filter((product) => {
+        return product.category.toLowerCase() === cat;
+      });
+      sortedArray.push(...holderArray);
+    });
+  } else {
+    sortedArray = [...sortedProducts];
+  }
 
-  const types = appliedFilters.type.split(",") || [];
-  let finalSorted = [] as ProductType[];
-  types.forEach((type) => {
-    const sortedArray = catSorted.filter(
-      (product) => product.subCategory === type,
-    );
-    if (finalSorted.length > 0) {
-      finalSorted.push(...sortedArray);
-    } else {
-      finalSorted = sortedProducts;
-    }
-  });
-
-  // const productsFilteredByCategories =
-  //   appliedFilters.categories.split(",").map((filterOpt) => {
-  //     [...sortedProducts].filter((product) => product.category !== filterOpt);
-  //   }) ?? initialProducts;
+  console.log(sortedArray);
 
   return (
     <main className="mx-[9%] border-t border-[#e5e7eb] pt-10 flex  gap-10">
@@ -73,21 +54,22 @@ const CollectionPage = () => {
             name="sort"
             className="border-2 border-[#d1d5db] px-3 py-2.5 text-sm"
             value={sortKey}
-            onChange={(e) => setSortKey(e.target.value)}
-          >
+            onChange={(e) => setSortKey(e.target.value)}>
             {/* <option value="relavent">Sort by: Relavent</option> */}
             <option value="low-to-high">Sort by: Low to High</option>
             <option value="high-to-low">Sort by: High to Low</option>
           </select>
         </div>
         <div className="grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-x-4 gap-y-7">
-          {finalSorted.map((p: ProductType, i: number) => {
+          {sortedArray.map((p, i) => {
             return (
               <ProductTemplate
                 key={i}
                 title={p.name}
                 imgSrc={p.images[0]}
                 price={p.price}
+                category={p.category}
+                type={p.subCategory}
               />
             );
           })}

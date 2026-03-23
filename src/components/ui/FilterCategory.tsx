@@ -32,18 +32,20 @@ const FilterBox = ({ type, options }: filterBoxType) => {
         {type}
       </h5>
       <ul>
-        {options.map((option: string, i: number) => (
+        {options.map((option, i) => (
           <li key={i} className="mb-1.5 flex items-center gap-x-2">
             <input
               type="checkbox"
-              id={option}
+              id={type + "-" + option}
               className="h-3.5 aspect-square cursor-pointer"
+              checked={
+                searchParams.get(type)?.split(",").includes(option) ?? false
+              }
               onChange={(e) => handleChangeParams(option, e.target.checked)}
             />
             <label
-              htmlFor={option}
-              className="capitalize text-[#374151] text-sm font-light cursor-pointer"
-            >
+              htmlFor={type + "-" + option}
+              className="capitalize text-[#374151] text-sm font-light cursor-pointer">
               {option}
             </label>
           </li>

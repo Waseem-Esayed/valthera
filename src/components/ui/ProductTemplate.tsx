@@ -5,11 +5,11 @@ const ProductTemplate = (props: {
   title: string;
   price: number;
 }) => {
-  const { imgSrc, title, price } = props;
+  const { imgSrc, title, price, category, type } = props;
 
   return (
-    <Link to="" className="flex flex-col h-fit gap-y-1 w-75">
-      <div className="w-75 overflow-hidden">
+    <Link to="" className="w-full flex flex-col h-fit gap-y-1">
+      <div className="overflow-hidden">
         <img
           src={imgSrc}
           alt={title}
@@ -23,6 +23,8 @@ const ProductTemplate = (props: {
         {"$"}
         {price}
       </p>
+      <span>{category}</span>
+      <span>{type}</span>
     </Link>
   );
 };
