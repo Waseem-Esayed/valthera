@@ -1,9 +1,10 @@
 import HomePageSectionTemplate from "./HomePageSectionTemplate";
 import type ProductType from "../../types/product";
 import { useSelector } from "react-redux";
+import type {RootState} from "../../app/store";
 
 const BestSellerSection = () => {
-  const bestSellerProducts = useSelector((state) => state.products).filter(
+  const bestSellerProducts = useSelector((state: RootState) => state.products).filter(
     (p: ProductType) => p.bestseller,
   );
 

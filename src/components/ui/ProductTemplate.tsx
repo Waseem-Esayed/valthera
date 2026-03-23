@@ -4,6 +4,8 @@ const ProductTemplate = (props: {
   imgSrc: string;
   title: string;
   price: number;
+  category: string;
+  type?: string;
 }) => {
   const { imgSrc, title, price, category, type } = props;
 

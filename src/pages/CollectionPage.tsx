@@ -1,4 +1,3 @@
-// import { useSelector } from "react-redux";
 import FilterBox from "../components/ui/FilterCategory";
 import ProductTemplate from "../components/ui/ProductTemplate";
 import type ProductType from "../types/product";
@@ -7,8 +6,7 @@ import { useSearchParams } from "react-router-dom";
 import products from "../mock-data/products";
 
 const CollectionPage = () => {
-  // const allCollections = useSelector((state) => state.products);
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const filterCategories = searchParams.get("categories")?.split(",") ?? [];
   const initialProducts = products;
   const [sortKey, setSortKey] = useState("high-to-low");

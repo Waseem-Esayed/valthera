@@ -1,10 +1,11 @@
 import HomePageSectionTemplate from "./HomePageSectionTemplate";
 import { useSelector } from "react-redux";
+import type { RootState } from "../../app/store";
 
 const LatestCollectionsSection = () => {
-  const top10LatestCollections = useSelector((state) => state.products).slice(
-    -10,
-  );
+  const top10LatestCollections = useSelector(
+    (state: RootState) => state.products,
+  ).slice(-10);
 
   return (
     <HomePageSectionTemplate
