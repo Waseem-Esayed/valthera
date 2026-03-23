@@ -66,8 +66,6 @@ const CollectionPage = () => {
                 title={p.name}
                 imgSrc={p.images[0]}
                 price={p.price}
-                category={p.category}
-                type={p.subCategory}
               />
             );
           })}
