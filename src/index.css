@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Prata&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-outfit: "Outfit", sans-serif;
+  --font-prata: "Prata", serif;
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: var(--font-outfit);
+  }
+}
+
+:root {
+  /* Schriftart-Einstellungen */
+  line-height: 1.5;
+
+  /* Farbschema-Unterstützung (Heller/Dunkler Modus des Browsers) */
+  /* color-scheme: light dark; */
+
+  /* Standardfarben für den Dunkelmodus */
+
+  /* Text-Rendering Optimierungen */
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
