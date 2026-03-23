@@ -15,10 +15,11 @@ const NavLinkElement = ({
     <li>
       <NavLink
         to={`/${destination}`}
-        className="flex flex-col items-center gap-1">
+        className="flex flex-col items-center gap-1"
+      >
         {({ isActive }) => (
           <>
-            <p className=" text-[#374151] text-xs font-semibold tracking-wide uppercase">
+            <p className=" text-[#374151] text-sm font-semibold tracking-wide uppercase">
               {title}
             </p>
             {isActive && <hr className="w-[55%] border-[#374151]" />}

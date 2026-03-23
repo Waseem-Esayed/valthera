@@ -1,4 +1,4 @@
-import type ProductType from "../../src/types/products";
+import type ProductType from "../../src/types/product";
 
 const products: ProductType[] = [
   {
@@ -19,7 +19,7 @@ const products: ProductType[] = [
       "Cash on delivery is available",
       "7 days return policy",
     ],
-    category: "Kid",
+    category: "Kids",
     subCategory: "Bottomwear",
     images: [
       "https://raw.githubusercontent.com/avinashdm/gs-images/main/forever/p_img47.png",
@@ -87,7 +87,7 @@ const products: ProductType[] = [
       "Keep the cold at bay with this fleece-lined hooded sweatshirt. It features a kangaroo pocket and ribbed cuffs for a snug fit.",
     availableSizes: ["S", "M", "L"],
     features: ["Fleece Lined", "Kangaroo Pocket", "Machine Washable"],
-    category: "Kid",
+    category: "Kids",
     subCategory: "Topwear",
     images: [
       "https://raw.githubusercontent.com/avinashdm/gs-images/main/forever/p_img15.png",
@@ -138,7 +138,7 @@ const products: ProductType[] = [
       "Perfect for playtime, these shorts are made from soft cotton with an elastic waistband for an easy fit.",
     availableSizes: ["XS", "S", "M"],
     features: ["2-Pack", "Elastic Waist", "Durable"],
-    category: "Kid",
+    category: "Kids",
     subCategory: "Bottomwear",
     images: [
       "https://raw.githubusercontent.com/avinashdm/gs-images/main/forever/p_img50.png",
@@ -206,7 +206,7 @@ const products: ProductType[] = [
       "Let your child's personality shine with our vibrant graphic tees. Soft cotton ensures it's comfortable for all-day wear.",
     availableSizes: ["S", "M", "L"],
     features: ["Eco-friendly ink", "Soft cotton", "No-tag neck"],
-    category: "Kid",
+    category: "Kids",
     subCategory: "Winterwear",
     images: [
       "https://raw.githubusercontent.com/avinashdm/gs-images/main/forever/p_img44.png",
@@ -255,7 +255,7 @@ const products: ProductType[] = [
   //     "The essential layer for any season. This denim jacket is rugged enough for play but stylish enough for photos.",
   //   availableSizes: ["S", "M", "L"],
   //   features: ["Metal buttons", "Distressed look", "Four pockets"],
-  //   category: "Kid",
+  //   category: "Kids",
   //   subCategory: "Winterwear",
   //   images: ["https://via.placeholder.com"],
   //   bestseller: false,
@@ -300,7 +300,7 @@ const products: ProductType[] = [
   //     "Made from 100% organic cotton, this pajama set is gentle on the skin and perfect for bedtime stories.",
   //   availableSizes: ["XS", "S", "M"],
   //   features: ["Organic Cotton", "Elastic cuffs", "Tag-free"],
-  //   category: "Kid",
+  //   category: "Kids",
   //   subCategory: "Winterwear",
   //   images: ["https://via.placeholder.com"],
   //   bestseller: true,

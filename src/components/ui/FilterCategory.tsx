@@ -37,16 +37,13 @@ const FilterBox = ({ type, options }: filterBoxType) => {
             <input
               type="checkbox"
               id={option}
-              className="h-3.5 aspect-square"
-              // checked={searchParams
-              //   .get(type)
-              //   ?.split(",")
-              //   .includes(option) /* /* () => checkIsChecked(option) */}
+              className="h-3.5 aspect-square cursor-pointer"
               onChange={(e) => handleChangeParams(option, e.target.checked)}
             />
             <label
               htmlFor={option}
-              className="capitalize text-[#374151] text-sm font-light">
+              className="capitalize text-[#374151] text-sm font-light cursor-pointer"
+            >
               {option}
             </label>
           </li>

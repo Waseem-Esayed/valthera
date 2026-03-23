@@ -2,8 +2,8 @@ import heroImg from "../../assets/images/hero-img.png";
 
 const HomePageHeroSection = () => {
   return (
-    <section className="border border-[#9ca3af] aspect-2.5/1 flex">
-      <div className="flex-[0.5] flex justify-center items-center">
+    <section className="border border-[#9ca3af] aspect-2.5/1 flex justify-between">
+      <div className="flex justify-center items-center w-[50%]">
         <div className="flex flex-col gap-3.5">
           <div className="flex items-center">
             <hr className="w-11 border-[1.35px] border-[#414141] mr-3" />
@@ -22,7 +22,7 @@ const HomePageHeroSection = () => {
           </div>
         </div>
       </div>
-      <img src={heroImg} alt="Hero Img" className="flex-[0.5]" />
+      <img src={heroImg} alt="Hero Img" className="w-[50%]" />
     </section>
   );
 };
