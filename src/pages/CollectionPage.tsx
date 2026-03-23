@@ -1,29 +1,54 @@
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import FilterBox from "../components/ui/FilterCategory";
 import ProductTemplate from "../components/ui/ProductTemplate";
 import type ProductType from "../types/product";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import products from "../mock-data/products";
 
 const CollectionPage = () => {
-  const allCollections = useSelector((state) => state.products);
+  // const allCollections = useSelector((state) => state.products);
+  const initialProducts = products;
   const [sortKey, setSortKey] = useState("high-to-low");
-  const sortedProducts = [...allCollections].sort((a, b) => {
+  const sortedProducts = [...initialProducts].sort((a, b) => {
     return sortKey === "high-to-low" ? b.price - a.price : a.price - b.price;
   });
+
   const [seachParams, setSeachParams] = useSearchParams();
   const [appliedFilters, setAppliedFilters] = useState(
     Object.fromEntries(seachParams),
   );
 
-  useEffect(() => {
-    setAppliedFilters(Object.fromEntries(seachParams));
-    // console.log(Object.fromEntries(seachParams));
-  }, [seachParams]);
+  const categories = appliedFilters.categories.split(",") || [];
+  let catSorted = [] as ProductType[];
+  categories.forEach((cat) => {
+    const sortedArray = sortedProducts.filter(
+      (product) => product.category === cat,
+    );
+    if (catSorted.length > 0) {
+      catSorted.push(...sortedArray);
+    } else {
+      catSorted = sortedProducts;
+    }
+  });
 
-  function changeSortOpt(opt: string) {
-    setSortKey(opt);
-  }
+  const types = appliedFilters.type.split(",") || [];
+  let finalSorted = [] as ProductType[];
+  types.forEach((type) => {
+    const sortedArray = catSorted.filter(
+      (product) => product.subCategory === type,
+    );
+    if (finalSorted.length > 0) {
+      finalSorted.push(...sortedArray);
+    } else {
+      finalSorted = sortedProducts;
+    }
+  });
+
+  // const productsFilteredByCategories =
+  //   appliedFilters.categories.split(",").map((filterOpt) => {
+  //     [...sortedProducts].filter((product) => product.category !== filterOpt);
+  //   }) ?? initialProducts;
 
   return (
     <main className="mx-[9%] border-t border-[#e5e7eb] pt-10 flex  gap-10">
@@ -47,18 +72,16 @@ const CollectionPage = () => {
           <select
             name="sort"
             className="border-2 border-[#d1d5db] px-3 py-2.5 text-sm"
-            // value={sortOpt}
+            value={sortKey}
             onChange={(e) => setSortKey(e.target.value)}
           >
             {/* <option value="relavent">Sort by: Relavent</option> */}
             <option value="low-to-high">Sort by: Low to High</option>
-            <option value="high-to-low" selected>
-              Sort by: High to Low
-            </option>
+            <option value="high-to-low">Sort by: High to Low</option>
           </select>
         </div>
         <div className="grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-x-4 gap-y-7">
-          {sortedProducts.map((p: ProductType, i: number) => {
+          {finalSorted.map((p: ProductType, i: number) => {
             return (
               <ProductTemplate
                 key={i}
