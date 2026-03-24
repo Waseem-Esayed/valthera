@@ -1,5 +1,6 @@
 # ToDo Liste
 
+- loader="lazy" zu den imgs hinzufügen -> für bessere optimierung
 - Filtern Fixen
 - SearchBar
   - Nur bei collections

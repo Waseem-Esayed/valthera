@@ -4,11 +4,8 @@ const ProductTemplate = (props: {
   imgSrc: string;
   title: string;
   price: number;
-
-  // Debugging
-  bestseller?: boolean;
 }) => {
-  const { imgSrc, title, price, bestseller } = props;
+  const { imgSrc, title, price } = props;
 
   return (
     <Link to="" className="w-full flex flex-col h-fit gap-y-1">
@@ -26,9 +23,6 @@ const ProductTemplate = (props: {
         {"$"}
         {price}
       </p>
-
-      {/* Debugging */}
-      <p>{bestseller ? "true" : "false"}</p>
     </Link>
   );
 };
