@@ -1,4 +1,8 @@
 export default interface FilterBox {
-  type: string;
-  options: string[];
+  visualType: string;
+  internType: string | boolean;
+  options: {
+    name: string;
+    value: string | boolean;
+  };
 }

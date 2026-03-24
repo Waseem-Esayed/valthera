@@ -1,4 +1,4 @@
-import type FeatureType from "../../types/feature";
+import type FeatureType from "../../types/Feature";
 
 const Feature = ({ title, description, imgSrc }: FeatureType) => {
   return (

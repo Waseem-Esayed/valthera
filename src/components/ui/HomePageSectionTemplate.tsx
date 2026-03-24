@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import ProductTemplate from "./ProductTemplate";
-import type ProductType from "../../types/product";
+import type ProductType from "../../types/Product";
 import SkeletonProduct from "./SkeletonProduct";
 
 type HomePageSectionTemplateType = {
