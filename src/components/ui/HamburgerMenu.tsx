@@ -31,7 +31,7 @@ const HamburgerMenu = () => {
         </li>
         <li className="flex">
           <NavLink
-            to="collection"
+            to="/collection"
             onClick={() => setVisibleHamburgerMenu(false)}
             className={NavLinkStyles}
           >
@@ -40,7 +40,7 @@ const HamburgerMenu = () => {
         </li>
         <li className="flex">
           <NavLink
-            to="about"
+            to="/about"
             onClick={() => setVisibleHamburgerMenu(false)}
             className={NavLinkStyles}
           >
@@ -49,7 +49,7 @@ const HamburgerMenu = () => {
         </li>
         <li className="flex">
           <NavLink
-            to="contact"
+            to="/contact"
             onClick={() => setVisibleHamburgerMenu(false)}
             className={NavLinkStyles}
           >

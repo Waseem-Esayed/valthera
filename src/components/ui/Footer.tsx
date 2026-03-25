@@ -3,7 +3,7 @@ import brandLogo from "../../assets/images/brand-logo.svg";
 
 const Footer = () => {
   return (
-    <footer className=" mx-[5%] pb-6 pt-40">
+    <footer className=" mx-[5%] pb-6 pt-35">
       <div className="flex flex-col justify-between flex-wrap gap-x-10 gap-y-10">
         <div className="flex flex-col gap-4">
           <img src={brandLogo} alt="Valthera" className="w-48" />

@@ -2,12 +2,7 @@ import type ProductType from "../types/Product";
 
 const products: ProductType[] = [
   {
-    id: (
-      Math.random() *
-      Math.random() *
-      Math.random() *
-      Math.random()
-    ).toString(),
+    id: crypto.randomUUID(),
     name: "Kid Tapered Slim Fit Trouser",
     price: 38,
     reviews: [
@@ -31,12 +26,7 @@ const products: ProductType[] = [
     bestseller: false,
   },
   {
-    id: (
-      Math.random() *
-      Math.random() *
-      Math.random() *
-      Math.random()
-    ).toString(),
+    id: crypto.randomUUID(),
     name: "Men Round Neck Pure Cotton T-shirt",
     price: 25,
     reviews: [{ reviewText: "Great fit!", rating: 5 }],
@@ -57,12 +47,7 @@ const products: ProductType[] = [
     bestseller: true,
   },
   {
-    id: (
-      Math.random() *
-      Math.random() *
-      Math.random() *
-      Math.random()
-    ).toString(),
+    id: crypto.randomUUID(),
     name: "Box Round Neck Pure Cotton T-shirt",
     price: 55,
     reviews: [{ reviewText: "Beautiful pattern", rating: 4 }],
@@ -83,12 +68,7 @@ const products: ProductType[] = [
     bestseller: true,
   },
   {
-    id: (
-      Math.random() *
-      Math.random() *
-      Math.random() *
-      Math.random()
-    ).toString(),
+    id: crypto.randomUUID(),
     name: "Women Zip-Front Relaxed Fit Jacket",
     price: 65,
     reviews: [{ reviewText: "Perfect stretch", rating: 5 }],
@@ -108,12 +88,7 @@ const products: ProductType[] = [
     bestseller: false,
   },
   {
-    id: (
-      Math.random() *
-      Math.random() *
-      Math.random() *
-      Math.random()
-    ).toString(),
+    id: crypto.randomUUID(),
     name: "Men Tapered Fit Flat-Front Trousers",
     price: 32,
     reviews: [{ reviewText: "Super soft inside", rating: 5 }],
@@ -133,12 +108,7 @@ const products: ProductType[] = [
     bestseller: false,
   },
   {
-    id: (
-      Math.random() *
-      Math.random() *
-      Math.random() *
-      Math.random()
-    ).toString(),
+    id: crypto.randomUUID(),
     name: "Girls Round Neck Cotton Top",
     price: 42,
     reviews: [{ reviewText: "Best for yoga!", rating: 5 }],
@@ -159,12 +129,7 @@ const products: ProductType[] = [
     bestseller: true,
   },
   {
-    id: (
-      Math.random() *
-      Math.random() *
-      Math.random() *
-      Math.random()
-    ).toString(),
+    id: crypto.randomUUID(),
     name: "Women Zip-Front Relaxed Fit Jacket",
     price: 48,
     reviews: [{ reviewText: "Good for office", rating: 4 }],
@@ -184,12 +149,7 @@ const products: ProductType[] = [
     bestseller: false,
   },
   {
-    id: (
-      Math.random() *
-      Math.random() *
-      Math.random() *
-      Math.random()
-    ).toString(),
+    id: crypto.randomUUID(),
     name: "Kid Tapered Slim Fit Trouser",
     price: 22,
     reviews: [{ reviewText: "Great value", rating: 4 }],
@@ -209,12 +169,7 @@ const products: ProductType[] = [
     bestseller: false,
   },
   {
-    id: (
-      Math.random() *
-      Math.random() *
-      Math.random() *
-      Math.random()
-    ).toString(),
+    id: crypto.randomUUID(),
     name: "Man Printed Plain Cotton Shirtt",
     price: 89,
     reviews: [{ reviewText: "Very trendy", rating: 5 }],
@@ -234,12 +189,7 @@ const products: ProductType[] = [
     bestseller: false,
   },
   {
-    id: (
-      Math.random() *
-      Math.random() *
-      Math.random() *
-      Math.random()
-    ).toString(),
+    id: crypto.randomUUID(),
     name: "Women Zip-Front Relaxed Fit Jackets",
     price: 58,
     reviews: [{ reviewText: "Lots of pockets", rating: 4 }],
@@ -259,12 +209,7 @@ const products: ProductType[] = [
     bestseller: false,
   },
   {
-    id: (
-      Math.random() *
-      Math.random() *
-      Math.random() *
-      Math.random()
-    ).toString(),
+    id: crypto.randomUUID(),
     name: "Men Elegant Wool Coat",
     price: 145,
     reviews: [{ reviewText: "Warm and elegant", rating: 5 }],
@@ -285,12 +230,7 @@ const products: ProductType[] = [
     bestseller: true,
   },
   {
-    id: (
-      Math.random() *
-      Math.random() *
-      Math.random() *
-      Math.random()
-    ).toString(),
+    id: crypto.randomUUID(),
     name: "Kids Printed Casual T-Shirt",
     price: 18,
     reviews: [{ reviewText: "My son loves it", rating: 5 }],
@@ -310,12 +250,7 @@ const products: ProductType[] = [
     bestseller: true,
   },
   {
-    id: (
-      Math.random() *
-      Math.random() *
-      Math.random() *
-      Math.random()
-    ).toString(),
+    id: crypto.randomUUID(),
     name: "Men Lightweight Rain Jacket",
     price: 75,
     reviews: [{ reviewText: "Stays dry", rating: 5 }],
@@ -335,12 +270,7 @@ const products: ProductType[] = [
     bestseller: false,
   },
   {
-    id: (
-      Math.random() *
-      Math.random() *
-      Math.random() *
-      Math.random()
-    ).toString(),
+    id: crypto.randomUUID(),
     name: "Men Slim Fit Relaxed Denim Jacket",
     price: 79,
     reviews: [{ reviewText: "Stays dry", rating: 5 }],
@@ -360,12 +290,7 @@ const products: ProductType[] = [
     bestseller: false,
   },
   {
-    id: (
-      Math.random() *
-      Math.random() *
-      Math.random() *
-      Math.random()
-    ).toString(),
+    id: crypto.randomUUID(),
     name: "Women Zip-Front Relaxed Fit Jacket",
     price: 82,
     reviews: [{ reviewText: "Stays dry", rating: 5 }],
@@ -385,12 +310,7 @@ const products: ProductType[] = [
     bestseller: false,
   },
   {
-    id: (
-      Math.random() *
-      Math.random() *
-      Math.random() *
-      Math.random()
-    ).toString(),
+    id: crypto.randomUUID(),
     name: "Boy Round Neck Pure Cotton T-shirt",
     price: 30,
     reviews: [{ reviewText: "Stays dry", rating: 5 }],
@@ -410,12 +330,7 @@ const products: ProductType[] = [
     bestseller: true,
   },
   {
-    id: (
-      Math.random() *
-      Math.random() *
-      Math.random() *
-      Math.random()
-    ).toString(),
+    id: crypto.randomUUID(),
     name: "Men Round Neck Pure Cotton T-shirt",
     price: 26,
     reviews: [{ reviewText: "Stays dry", rating: 5 }],
@@ -435,12 +350,7 @@ const products: ProductType[] = [
     bestseller: true,
   },
   {
-    id: (
-      Math.random() *
-      Math.random() *
-      Math.random() *
-      Math.random()
-    ).toString(),
+    id: crypto.randomUUID(),
     name: "Women Round Neck Cotton Top",
     price: 40,
     reviews: [{ reviewText: "Stays dry", rating: 5 }],
@@ -460,12 +370,7 @@ const products: ProductType[] = [
     bestseller: false,
   },
   {
-    id: (
-      Math.random() *
-      Math.random() *
-      Math.random() *
-      Math.random()
-    ).toString(),
+    id: crypto.randomUUID(),
     name: "Girls Round Neck Cotton Top",
     price: 38,
     reviews: [{ reviewText: "Stays dry", rating: 5 }],
@@ -485,12 +390,7 @@ const products: ProductType[] = [
     bestseller: false,
   },
   {
-    id: (
-      Math.random() *
-      Math.random() *
-      Math.random() *
-      Math.random()
-    ).toString(),
+    id: crypto.randomUUID(),
     name: "Women Zip-Front Relaxed Fit Jacket",
     price: 82,
     reviews: [{ reviewText: "Stays dry", rating: 5 }],
@@ -510,12 +410,7 @@ const products: ProductType[] = [
     bestseller: true,
   },
   {
-    id: (
-      Math.random() *
-      Math.random() *
-      Math.random() *
-      Math.random()
-    ).toString(),
+    id: crypto.randomUUID(),
     name: "Men Tapered Fit Flat-Front Trousers",
     price: 82,
     reviews: [{ reviewText: "Stays dry", rating: 5 }],
@@ -535,12 +430,7 @@ const products: ProductType[] = [
     bestseller: false,
   },
   {
-    id: (
-      Math.random() *
-      Math.random() *
-      Math.random() *
-      Math.random()
-    ).toString(),
+    id: crypto.randomUUID(),
     name: "Men Round Neck Pure Cotton T-shirt",
     price: 26,
     reviews: [{ reviewText: "Stays dry", rating: 5 }],
@@ -560,12 +450,7 @@ const products: ProductType[] = [
     bestseller: false,
   },
   {
-    id: (
-      Math.random() *
-      Math.random() *
-      Math.random() *
-      Math.random()
-    ).toString(),
+    id: crypto.randomUUID(),
     name: "Boy Round Neck Pure Cotton T-shirt",
     price: 28,
     reviews: [{ reviewText: "Stays dry", rating: 5 }],
@@ -585,12 +470,7 @@ const products: ProductType[] = [
     bestseller: false,
   },
   {
-    id: (
-      Math.random() *
-      Math.random() *
-      Math.random() *
-      Math.random()
-    ).toString(),
+    id: crypto.randomUUID(),
     name: "Women Round Neck Cotton Top",
     price: 38,
     reviews: [{ reviewText: "Stays dry", rating: 5 }],
@@ -610,12 +490,7 @@ const products: ProductType[] = [
     bestseller: false,
   },
   {
-    id: (
-      Math.random() *
-      Math.random() *
-      Math.random() *
-      Math.random()
-    ).toString(),
+    id: crypto.randomUUID(),
     name: "Men Slim Fit Relaxed Denim Jacket",
     price: 80,
     reviews: [{ reviewText: "Stays dry", rating: 5 }],
@@ -635,12 +510,7 @@ const products: ProductType[] = [
     bestseller: false,
   },
   {
-    id: (
-      Math.random() *
-      Math.random() *
-      Math.random() *
-      Math.random()
-    ).toString(),
+    id: crypto.randomUUID(),
     name: "Kid Tapered Slim Fit Trouser",
     price: 60,
     reviews: [{ reviewText: "Stays dry", rating: 5 }],
@@ -660,12 +530,7 @@ const products: ProductType[] = [
     bestseller: false,
   },
   {
-    id: (
-      Math.random() *
-      Math.random() *
-      Math.random() *
-      Math.random()
-    ).toString(),
+    id: crypto.randomUUID(),
     name: "Women Round Neck Cotton Top",
     price: 42,
     reviews: [{ reviewText: "Stays dry", rating: 5 }],
@@ -685,12 +550,7 @@ const products: ProductType[] = [
     bestseller: true,
   },
   {
-    id: (
-      Math.random() *
-      Math.random() *
-      Math.random() *
-      Math.random()
-    ).toString(),
+    id: crypto.randomUUID(),
     name: "Men Round Neck Pure Cotton T-shirt",
     price: 34,
     reviews: [{ reviewText: "Stays dry", rating: 5 }],
@@ -710,12 +570,7 @@ const products: ProductType[] = [
     bestseller: false,
   },
   {
-    id: (
-      Math.random() *
-      Math.random() *
-      Math.random() *
-      Math.random()
-    ).toString(),
+    id: crypto.randomUUID(),
     name: "Girls Round Neck Cotton Top",
     price: 40,
     reviews: [{ reviewText: "Stays dry", rating: 5 }],
@@ -735,12 +590,7 @@ const products: ProductType[] = [
     bestseller: true,
   },
   {
-    id: (
-      Math.random() *
-      Math.random() *
-      Math.random() *
-      Math.random()
-    ).toString(),
+    id: crypto.randomUUID(),
     name: "Women Palazzo Pants with Waist Belt",
     price: 67,
     reviews: [{ reviewText: "Stays dry", rating: 5 }],
@@ -760,12 +610,7 @@ const products: ProductType[] = [
     bestseller: true,
   },
   {
-    id: (
-      Math.random() *
-      Math.random() *
-      Math.random() *
-      Math.random()
-    ).toString(),
+    id: crypto.randomUUID(),
     name: "Men Slim Fit Relaxed Denim Jacket",
     price: 84,
     reviews: [{ reviewText: "Stays dry", rating: 5 }],
@@ -785,12 +630,7 @@ const products: ProductType[] = [
     bestseller: false,
   },
   {
-    id: (
-      Math.random() *
-      Math.random() *
-      Math.random() *
-      Math.random()
-    ).toString(),
+    id: crypto.randomUUID(),
     name: "Girls Round Neck Cotton Top",
     price: 48,
     reviews: [{ reviewText: "Stays dry", rating: 5 }],
@@ -810,12 +650,7 @@ const products: ProductType[] = [
     bestseller: true,
   },
   {
-    id: (
-      Math.random() *
-      Math.random() *
-      Math.random() *
-      Math.random()
-    ).toString(),
+    id: crypto.randomUUID(),
     name: "Men Round Neck Pure Cotton T-shirt",
     price: 46,
     reviews: [{ reviewText: "Stays dry", rating: 5 }],
@@ -835,12 +670,7 @@ const products: ProductType[] = [
     bestseller: false,
   },
   {
-    id: (
-      Math.random() *
-      Math.random() *
-      Math.random() *
-      Math.random()
-    ).toString(),
+    id: crypto.randomUUID(),
     name: "Boy Round Neck Pure Cotton T-shirt",
     price: 36,
     reviews: [{ reviewText: "Stays dry", rating: 5 }],
@@ -860,12 +690,7 @@ const products: ProductType[] = [
     bestseller: false,
   },
   {
-    id: (
-      Math.random() *
-      Math.random() *
-      Math.random() *
-      Math.random()
-    ).toString(),
+    id: crypto.randomUUID(),
     name: "Girls Round Neck Cotton Top",
     price: 60,
     reviews: [{ reviewText: "Stays dry", rating: 5 }],
@@ -885,12 +710,7 @@ const products: ProductType[] = [
     bestseller: true,
   },
   {
-    id: (
-      Math.random() *
-      Math.random() *
-      Math.random() *
-      Math.random()
-    ).toString(),
+    id: crypto.randomUUID(),
     name: "Men Round Neck Pure Cotton T-shirt",
     price: 54,
     reviews: [{ reviewText: "Stays dry", rating: 5 }],
@@ -910,12 +730,7 @@ const products: ProductType[] = [
     bestseller: false,
   },
   {
-    id: (
-      Math.random() *
-      Math.random() *
-      Math.random() *
-      Math.random()
-    ).toString(),
+    id: crypto.randomUUID(),
     name: "Women Palazzo Pants with Waist Belt",
     price: 52,
     reviews: [{ reviewText: "Stays dry", rating: 5 }],
@@ -935,12 +750,7 @@ const products: ProductType[] = [
     bestseller: false,
   },
   {
-    id: (
-      Math.random() *
-      Math.random() *
-      Math.random() *
-      Math.random()
-    ).toString(),
+    id: crypto.randomUUID(),
     name: "Men Slim Fit Relaxed Denim Jacket",
     price: 77,
     reviews: [{ reviewText: "Stays dry", rating: 5 }],

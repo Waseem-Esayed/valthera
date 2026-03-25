@@ -15,6 +15,7 @@ import AboutPage from "../pages/AboutPage";
 import ContactPage from "../pages/ContactPage";
 import CartPage from "../pages/CartPage";
 import LoginPage from "../pages/LoginPage";
+import ProductPage from "../pages/ProductPage";
 import NotFound from "../pages/NotFound";
 import AdminPanelLoginPage from "../pages/admin-panel/Login";
 import AdminPanelAddPage from "../pages/admin-panel/AdminPanelAddPage";
@@ -31,6 +32,7 @@ const router = createBrowserRouter(
         <Route path="contact" element={<ContactPage />} />
         <Route path="cart" element={<CartPage />} />
         <Route path="login" element={<LoginPage />} />
+        <Route path="product/:id" element={<ProductPage />} />
       </Route>
 
       <Route path="/admin">

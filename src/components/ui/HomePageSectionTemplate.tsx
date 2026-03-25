@@ -23,7 +23,7 @@ const HomePageSectionTemplate = ({
     setTimeout(() => {
       setProducts(filteredProducts);
       setLoading(false);
-    }, 200);
+    }, 1000);
   }, [filteredProducts]);
 
   return (
@@ -46,10 +46,11 @@ const HomePageSectionTemplate = ({
           products.map((p, i) => {
             return (
               <ProductTemplate
-                key={i}
+                key={p.id}
                 title={p.name}
                 imgSrc={p.images[0]}
                 price={p.price}
+                id={p.id}
               />
             );
           })}

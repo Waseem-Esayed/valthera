@@ -4,11 +4,12 @@ const ProductTemplate = (props: {
   imgSrc: string;
   title: string;
   price: number;
+  id: string;
 }) => {
-  const { imgSrc, title, price } = props;
+  const { imgSrc, title, price, id } = props;
 
   return (
-    <Link to="" className="w-full flex flex-col h-fit gap-y-1">
+    <Link to={`/product/${id}`} className="w-full flex flex-col h-fit gap-y-1">
       <div className="overflow-hidden">
         <img
           src={imgSrc}

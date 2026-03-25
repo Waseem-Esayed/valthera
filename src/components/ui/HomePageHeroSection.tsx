@@ -2,8 +2,8 @@ import heroImg from "../../assets/images/hero-img.png";
 
 const HomePageHeroSection = () => {
   return (
-    <section className="border border-[#9ca3af] aspect-2.5/1 flex flex-col justify-between">
-      <div className="flex justify-center items-center w-full py-10">
+    <section className="border border-[#9ca3af]flex flex-col justify-between">
+      <div className="flex justify-center items-center py-10">
         <div className="flex flex-col gap-2">
           <div className="flex items-center justify-center">
             <hr className="w-9 border-[#414141] mr-3 border-[1.35px] rounded-full" />

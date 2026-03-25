@@ -105,10 +105,11 @@ const CollectionPage = () => {
             {filteredArary.map((p, i) => {
               return (
                 <ProductTemplate
-                  key={i}
+                  key={p.id}
                   title={p.name}
                   imgSrc={p.images[0]}
                   price={p.price}
+                  id={p.id}
                 />
               );
             })}
