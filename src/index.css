@@ -20,6 +20,10 @@
   }
 }
 
+#root:has(.hamburger-menu) {
+  overflow: hidden;
+}
+
 :root {
   /* Schriftart-Einstellungen */
   line-height: 1.5;

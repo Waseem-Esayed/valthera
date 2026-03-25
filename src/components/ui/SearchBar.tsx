@@ -7,8 +7,8 @@ const SearchBar = () => {
   const { setVisibleSearchBar } = useContext(SearchBarContext);
 
   return (
-    <div className="mb-10 bg-[#f9fafb] flex justify-center items-center gap-3 py-5 border-t border-[#e5e7eb]">
-      <div className="relative w-[50%]">
+    <div className="mb-10 bg-[#f9fafb] flex justify-center items-center gap-3.5 py-5 border-y border-[#e5e7eb]">
+      <div className="relative w-[77%]">
         <input
           type="text"
           placeholder="Search"
@@ -21,7 +21,8 @@ const SearchBar = () => {
       </div>
       <button
         onClick={() => setVisibleSearchBar(false)}
-        className="cursor-pointer">
+        className="cursor-pointer"
+      >
         <img src={closeIcon} alt="Close" className="w-3" />
       </button>
     </div>

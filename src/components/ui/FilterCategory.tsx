@@ -27,7 +27,7 @@ const FilterBox = ({ type, options }: filterBoxType) => {
   }
 
   return (
-    <div className="border border-[#d1d5db] px-5 py-3">
+    <div className="border border-[#d1d5db] px-5 py-3 mb-5">
       <h5 className="uppercase text-sm font-medium tracking-wide mb-3">
         {type}
       </h5>
@@ -45,7 +45,8 @@ const FilterBox = ({ type, options }: filterBoxType) => {
             />
             <label
               htmlFor={type + "-" + option}
-              className="capitalize text-[#374151] text-sm font-light cursor-pointer">
+              className="capitalize text-[#374151] text-sm font-light cursor-pointer"
+            >
               {option}
             </label>
           </li>

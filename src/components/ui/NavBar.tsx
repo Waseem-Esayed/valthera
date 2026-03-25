@@ -4,7 +4,9 @@ import brandLogo from "../../assets/images/brand-logo.svg";
 import SearchIcon from "../../assets/images/search-icon.svg";
 import userIcon from "../../assets/images/user-icon.svg";
 import cartIcon from "../../assets/images/cart-icon.svg";
+import hamburgerIcon from "../../assets/images/hamburger-icon.svg";
 import { useContext } from "react";
+import { HamburgerMenuContext } from "../../context/HamburgerMenuContext";
 
 const NavLinkElement = ({
   destination,
@@ -17,7 +19,8 @@ const NavLinkElement = ({
     <li>
       <NavLink
         to={`/${destination}`}
-        className="flex flex-col items-center gap-1">
+        className="flex flex-col items-center gap-1"
+      >
         {({ isActive }) => (
           <>
             <p className=" text-[#374151] text-sm font-semibold tracking-wide uppercase">
@@ -33,15 +36,21 @@ const NavLinkElement = ({
 
 const NavBar = () => {
   const { setVisibleSearchBar } = useContext(SearchBarContext);
+  // const { setVisibleHamburgerMenu } = useContext(HamburgerMenuContext);
+  const { setVisibleHamburgerMenu } = useContext(HamburgerMenuContext);
 
   function makeSearchBarVisible() {
     setVisibleSearchBar(true);
   }
 
+  function testFunc() {
+    setVisibleHamburgerMenu(true);
+  }
+
   return (
     <header className="mx-[4%] pt-3.5 pb-3.5 flex justify-between items-center">
       <NavLink to="/">
-        <img src={brandLogo} alt="Valthera" className="w-40 flex-[0.2]" />
+        <img src={brandLogo} alt="Valthera" className="w-45 flex-[0.2]" />
       </NavLink>
       <nav className="left-1/2 -translate-x-1/2 hidden">
         <ul className="flex justify-center gap-6">
@@ -67,6 +76,11 @@ const NavBar = () => {
             <Link to="/cart">
               <img src={cartIcon} alt="Cart" className="w-5" />
             </Link>
+          </li>
+          <li>
+            <button onClick={testFunc}>
+              <img src={hamburgerIcon} alt="Menu" />
+            </button>
           </li>
         </ul>
       </nav>

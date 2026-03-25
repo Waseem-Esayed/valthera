@@ -9,8 +9,6 @@ export default function filterFunction(
   if (filterOpt.length > 0) {
     filterOpt.forEach((filter) => {
       const holderArray = initialArray.filter((product) => {
-        console.log(product[key as keyof ProductType]);
-        console.log(filter);
         if (filter !== "bestseller") {
           return product[key as keyof ProductType] === filter;
         } else {
@@ -18,7 +16,6 @@ export default function filterFunction(
         }
       });
       finalResult.push(...holderArray);
-      console.log(finalResult);
     });
   } else {
     finalResult.push(...initialArray);

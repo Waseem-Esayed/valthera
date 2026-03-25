@@ -1,3 +1,9 @@
 import { createContext } from "react";
 
-export const SearchBarContext = createContext(true);
+type SerachBarType = {
+  visibleSearchBar: boolean;
+  setVisibleSearchBar: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+export const SearchBarContext = createContext<SerachBarType>({visibleSearchBar: false,
+  setVisibleSearchBar: () => {}});
