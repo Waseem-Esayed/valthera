@@ -52,15 +52,13 @@ const CollectionPage = () => {
 
   return (
     <main
-      className={`mx-[4%] ${!visibleSearchBar && "py-11 border-t border-[#e5e7eb]"}`}
-    >
+      className={`mx-[4%] ${!visibleSearchBar && "py-11 border-t border-[#e5e7eb]"}`}>
       {visibleSearchBar && <SearchBar />}
       <div className="flex flex-col">
         <h4 className="uppercase text-xl mb-4">
           <button
             onClick={() => handleSwitchArrow()}
-            className="uppercase flex items-center gap-x-2.5"
-          >
+            className="uppercase flex items-center gap-x-2.5">
             filters
             <img
               src={filterBoxManager[0]}
@@ -95,14 +93,13 @@ const CollectionPage = () => {
               name="sort"
               className="border-2 border-[#d1d5db] px-3 py-2.5 text-sm"
               value={sortKey}
-              onChange={(e) => setSortKey(e.target.value)}
-            >
+              onChange={(e) => setSortKey(e.target.value)}>
               <option value="low-to-high">Sort by: Low to High</option>
               <option value="high-to-low">Sort by: High to Low</option>
             </select>
           </div>
           <div className="w-full grid grid-cols-2 gap-x-4 gap-y-7">
-            {filteredArary.map((p, i) => {
+            {filteredArary.map((p) => {
               return (
                 <ProductTemplate
                   key={p.id}
