@@ -19,8 +19,7 @@ const NavLinkElement = ({
     <li>
       <NavLink
         to={`/${destination}`}
-        className="flex flex-col items-center gap-1"
-      >
+        className="flex flex-col items-center gap-1">
         {({ isActive }) => (
           <>
             <p className=" text-[#374151] text-sm font-semibold tracking-wide uppercase">
@@ -36,7 +35,6 @@ const NavLinkElement = ({
 
 const NavBar = () => {
   const { setVisibleSearchBar } = useContext(SearchBarContext);
-  // const { setVisibleHamburgerMenu } = useContext(HamburgerMenuContext);
   const { setVisibleHamburgerMenu } = useContext(HamburgerMenuContext);
 
   function makeSearchBarVisible() {
