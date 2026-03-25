@@ -43,7 +43,7 @@ const HomePageSectionTemplate = ({
 
       <div className="w-full grid grid-cols-2 gap-x-4 gap-y-7">
         {!loading &&
-          products.map((p, i) => {
+          products.map((p) => {
             return (
               <ProductTemplate
                 key={p.id}
