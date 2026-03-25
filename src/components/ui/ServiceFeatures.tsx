@@ -5,7 +5,7 @@ import headsetIcon from "../../assets/images/headset-icon.svg";
 
 const ServiceFeatures = () => {
   return (
-    <section className="flex justify-around flex-wrap gap-x-10 gap-y-20 mt-7.5">
+    <section className="flex justify-around flex-wrap gap-y-13 mt-7.5">
       <Feature
         title="easy exchange policy"
         description="We offer hassle free exchange policy"

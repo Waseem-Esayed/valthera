@@ -23,23 +23,25 @@ const HomePageSectionTemplate = ({
     setTimeout(() => {
       setProducts(filteredProducts);
       setLoading(false);
-    }, 3000);
+    }, 200);
   }, [filteredProducts]);
 
   return (
     <section className="flex flex-col justify-center items-center gap-4">
-      <h3 className="text-3xl font-medium flex items-center tracking-wide">
-        <span className="text-[#6b7280] uppercase">
-          {sectionTitleFirstPart}
-        </span>
-        <span className="text-[#374151] ml-2 uppercase">
-          {sectionTitleSecondPart}
-        </span>
-        <hr className="w-11 ml-2.5 border-[1.35px] border-[#374151]" />
-      </h3>
-      <p className="text-[#4b5563] font-semibold mb-4">{sectionDescription}</p>
+      <div className="flex items-center">
+        <h3 className="text-3xl text-center uppercase text-[#6b7280] font-medium flex justify-center items-center tracking-wide flex-wrap">
+          {`${sectionTitleFirstPart} `}
+          <span className="text-[#374151] ml-2 text-wrap">
+            {sectionTitleSecondPart}
+          </span>
+        </h3>
+        <hr className="w-9 ml-2.5 border-[0.5] border-[#374151]" />
+      </div>
+      <p className="text-sm text-[#4b5563] mb-4 text-center w-[75%]">
+        {sectionDescription}
+      </p>
 
-      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-x-4 gap-y-7">
+      <div className="w-full grid grid-cols-2 gap-x-4 gap-y-7">
         {!loading &&
           products.map((p, i) => {
             return (
@@ -52,7 +54,7 @@ const HomePageSectionTemplate = ({
             );
           })}
       </div>
-      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-10">
+      <div className="w-full grid grid-cols-2 gap-x-4 gap-y-7">
         {loading &&
           Array.from({ length: 10 }).map((_, i) => {
             return <SkeletonProduct key={i} />;

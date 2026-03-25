@@ -3,10 +3,10 @@ import brandLogo from "../../assets/images/brand-logo.svg";
 
 const Footer = () => {
   return (
-    <footer className="mx-[9%] pb-6 pt-40">
-      <div className="flex justify-between flex-wrap gap-x-10 gap-y-10">
+    <footer className="pb-6 pt-40">
+      <div className="flex flex-col justify-between flex-wrap gap-x-10 gap-y-10">
         <div className="flex-[0.39] flex flex-col gap-4">
-          <img src={brandLogo} alt="Valthera" className="w-45" />
+          <img src={brandLogo} alt="Valthera" className="w-48" />
           <p className="text-[#4b5563] text-sm">
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text
@@ -14,7 +14,7 @@ const Footer = () => {
             and scrambled it to make a type specimen book.
           </p>
         </div>
-        <div className="flex flex-[0.5] justify-evenly flex-wrap gap-20">
+        <div className="flex flex-[0.5] flex-wrap gap-x-10 gap-y-14">
           <ResourceNavigation
             resourceType="company"
             resources={[

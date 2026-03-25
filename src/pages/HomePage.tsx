@@ -7,7 +7,7 @@ import ServiceFeatures from "../components/ui/ServiceFeatures";
 const HomePage = () => {
   return (
     <>
-      <main className="mx-[9%] flex flex-col gap-17">
+      <main className="mx-[4%] flex flex-col gap-13.5">
         <HomePageHeroSection />
         <LatestCollectionsSection />
         <BestSellersSection />

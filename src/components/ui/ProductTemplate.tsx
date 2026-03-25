@@ -13,6 +13,8 @@ const ProductTemplate = (props: {
         <img
           src={imgSrc}
           alt={title}
+          loading="lazy"
+          decoding="async"
           className="hover:scale-[1.2] duration-300"
         />
       </div>

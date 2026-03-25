@@ -1,13 +1,16 @@
+import { useContext, useState } from "react";
+import { useSearchParams } from "react-router-dom";
+import filterFunction from "../utils/filterFunction";
 import FilterBox from "../components/ui/FilterCategory";
 import ProductTemplate from "../components/ui/ProductTemplate";
-import type ProductType from "../types/Product";
-import { useState } from "react";
-import { useSearchParams } from "react-router-dom";
-import products from "../mock-data/products";
 import SearchBar from "../components/ui/SearchBar";
+import type ProductType from "../types/Product";
+import products from "../mock-data/products";
+import { SearchBarContext } from "../context/SearchBarContext";
 
 const CollectionPage = () => {
   const [searchParams] = useSearchParams();
+  const { visibleSearchBar } = useContext(SearchBarContext);
   const filterCategories = searchParams.get("categories")?.split(",") ?? [];
   const filterType = searchParams.get("type")?.split(",") ?? [];
   const filterBestseller = searchParams.get("bestseller")?.split(",") ?? [];
@@ -26,32 +29,6 @@ const CollectionPage = () => {
     bestseller: filterBestseller,
   };
 
-  function filterFunction(
-    filterOpt: string[],
-    initialArray: ProductType[],
-    key: string,
-  ) {
-    const finalResult: ProductType[] = [];
-    if (filterOpt.length > 0) {
-      filterOpt.forEach((filter) => {
-        const holderArray = initialArray.filter((product) => {
-          console.log(product[key as keyof ProductType]);
-          console.log(filter);
-          if (filter !== "bestseller") {
-            return product[key as keyof ProductType] === filter;
-          } else {
-            return product[key as keyof ProductType] === true;
-          }
-        });
-        finalResult.push(...holderArray);
-        console.log(finalResult);
-      });
-    } else {
-      finalResult.push(...initialArray);
-    }
-    return finalResult;
-  }
-
   let filteredArary: ProductType[] = sortedProducts;
 
   Object.entries(filterAll).forEach(([key, filter]) => {
@@ -59,10 +36,11 @@ const CollectionPage = () => {
   });
 
   return (
-    <main className="mx-[9%] border-t border-[#e5e7eb]">
-      <SearchBar />
+    <main
+      className={`${!visibleSearchBar && "py-11 border-t border-[#e5e7eb]"}`}>
+      {visibleSearchBar && <SearchBar />}
       <div className="flex gap-10">
-        <div className="flex-[0.1575] flex flex-col gap-8">
+        <div className="flex-[0.1575] flex flex-col gap-8 h-fit">
           <h4 className="uppercase text-xl flex flex-col gap-y-10 mb-1">
             filters
           </h4>
