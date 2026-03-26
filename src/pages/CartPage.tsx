@@ -1,15 +1,14 @@
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
-import { updateProductAmount } from "../features/cart/cartSlice";
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
 import type CartProductType from "../types/CartProduct";
+import trashIcon from "../assets/images/trash-icon.svg";
 
 const CartPage = () => {
-  const dispatch = useDispatch();
-  const cartProducts = useSelector((state) => state.cart);
+  const { cart } = useContext(CartContext);
 
-  function handleUpdateAmount(id: string, newAmount: number) {
-    dispatch(updateProductAmount({ id, newAmount }));
-  }
+  const subtotal = cart.reduce((sum, p) => sum + p.price, 0);
+  const shipping = 10;
+  const total = subtotal + shipping;
 
   return (
     <main className="mx-[4%] border-t border-[#e5e7eb]">
@@ -23,22 +22,38 @@ const CartPage = () => {
         <hr className="w-9 ml-2.5 border-[0.5] border-[#374151]" />
       </div>
 
-      <hr className="border-[#e5e7eb] mb-5" />
-      {cartProducts.map((product: CartProductType) => (
-        <div>
-          <div>
-            <img src={product.image} alt={product.name} />
+      <hr className="border border-[#e5e7eb] mb-4" />
+      {cart.map((product: CartProductType, i: number) => (
+        <div key={i}>
+          <div className="flex justify-between items-center gap-5.5 mb-4">
+            <div className="flex justify-center items-center gap-5.5 flex-[0.65]">
+              <img src={product.image} alt={product.name} className="h-20" />
+              <div className="self-start">
+                <p className="text-xs mb-2">{product.name}</p>
+                <div className="flex items-center gap-4.5">
+                  <p>${product.price}</p>
+                  <p
+                    className={
+                      "text-sm bg-gray-100 py-0.5 px-2 border border-[#e5e7eb] h-fit"
+                    }
+                  >
+                    {product.size}
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="flex-[0.3] flex justify-center items-center gap-3">
+              <input
+                type="number"
+                className="border border-[#e5e7eb] w-11  px-1.5 py-1"
+                defaultValue={product.amount}
+              />
+              <button>
+                <img src={trashIcon} alt="Remove" className="w-5" />
+              </button>
+            </div>
           </div>
-          <div>
-            <input
-              type="number"
-              min={1}
-              value={product.amount}
-              onChange={(e) =>
-                handleUpdateAmount(product.id, parseInt(e.currentTarget.value))
-              }
-            />
-          </div>
+          <hr className="border border-[#e5e7eb] mb-4" />
         </div>
       ))}
 
@@ -53,15 +68,15 @@ const CartPage = () => {
       </div>
       <div className="border-b border-[#e5e7eb] flex justify-between py-2.5">
         <span>Subtotal</span>
-        <span>$ 0.00</span>
+        <span>$ {subtotal.toFixed(2)}</span>
       </div>
       <div className="border-b border-[#e5e7eb] flex justify-between py-2.5">
         <span>Shipping Fee</span>
-        <span>$ 10.00</span>
+        <span>$ {shipping.toFixed(2)}</span>
       </div>
       <div className=" flex justify-between py-2.5">
         <span className="font-semibold">Total</span>
-        <span className="font-semibold">$ 0.00</span>
+        <span>$ {total.toFixed(2)}</span>
       </div>
       <div className="flex justify-end">
         <button className="uppercase bg-black text-white text-sm px-8 py-3 mt-5">

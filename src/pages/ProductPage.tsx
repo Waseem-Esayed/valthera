@@ -1,38 +1,34 @@
 import { useParams } from "react-router-dom";
-import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import type ProductType from "../types/Product";
-import { addProductToCart } from "../features/cart/cartSlice";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { CartContext } from "../context/CartContext";
+import type { RootState } from "../app/store";
 
 const ProductPage = () => {
   const { id } = useParams();
-  const products = useSelector((state) => state.products);
-  const productsInCart = useSelector((state) => state.cart);
+  const products = useSelector((state: RootState) => state.products);
   const product = products.find((p: ProductType) => p.id === Number(id));
-  const dispatch = useDispatch();
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
+
+  const { cart, addToCart } = useContext(CartContext);
 
   function handleAddToCart(product: ProductType) {
     if (selectedSize) {
-      dispatch(
-        addProductToCart({
-          id: product.id,
-          name: product.name,
-          image: product.images[0],
-          price: product.price,
-          size: selectedSize,
-          inStock: product.inStock,
-        }),
-      );
+      addToCart({
+        id: product.id,
+        name: product.name,
+        image: product.images[0],
+        price: product.price,
+        size: selectedSize,
+        amount: 1,
+        inStock: product.inStock,
+      });
     }
   }
 
   const checkDisabled = () => {
-    return (
-      productsInCart.filter((p: ProductType) => p.id === product.id).length ===
-      product?.inStock
-    );
+    return cart.filter((p) => p.id === product?.id).length === product?.inStock;
   };
 
   return (
@@ -55,7 +51,8 @@ const ProductPage = () => {
             value={size}
             onClick={(e) => setSelectedSize(e.currentTarget.value)}
             disabled={checkDisabled()}
-            className={`bg-gray-100 py-2 px-4 border disabled:border-[#e5e7eb] disabled:cursor-default ${selectedSize === size ? "border-[#f97316]" : "border-[#e5e7eb]"} cursor-pointer`}>
+            className={`bg-gray-100 py-2 px-4 border disabled:border-[#e5e7eb] disabled:cursor-default ${selectedSize === size ? "border-[#f97316]" : "border-[#e5e7eb]"} cursor-pointer`}
+          >
             {size}
           </button>
         ))}
@@ -63,7 +60,8 @@ const ProductPage = () => {
       <button
         onClick={() => product && handleAddToCart(product)}
         disabled={checkDisabled()}
-        className="uppercase text-white bg-black disabled:bg-gray-700 disabled:cursor-default text-sm px-8 py-3 tracking-wide border border-[#e5e7eb] cursor-pointer">
+        className="uppercase text-white bg-black disabled:bg-gray-700 disabled:cursor-default text-sm px-8 py-3 tracking-wide border border-[#e5e7eb] cursor-pointer"
+      >
         add to cart
       </button>
       {checkDisabled() && (
@@ -72,7 +70,7 @@ const ProductPage = () => {
         </p>
       )}
       <hr className="border-[#e5e7eb] mt-9 mb-7" />
-      {product?.features?.map((feature: string[], i: number) => (
+      {product?.features?.map((feature, i) => (
         <p key={i} className="text-sm text-[#6d7280] mb-1">
           {"- "}
           {feature}

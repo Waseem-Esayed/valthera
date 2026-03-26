@@ -4,6 +4,6 @@ export default interface CartProductType {
   image: string;
   price: number;
   size: string;
-  // amount: number;
+  amount: number;
   inStock: number;
 }

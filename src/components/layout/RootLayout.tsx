@@ -5,6 +5,7 @@ import HamburgerMenu from "../ui/HamburgerMenu";
 import NavBar from "../ui/NavBar";
 import Footer from "../ui/Footer";
 import { useState } from "react";
+import { CartProvider } from "../../context/CartContext";
 
 const RootLayout = () => {
   const [visibleSearchBar, setVisibleSearchBar] = useState(false);
@@ -16,8 +17,10 @@ const RootLayout = () => {
         <SearchBarContext.Provider
           value={{ visibleSearchBar, setVisibleSearchBar }}
         >
-          <NavBar />
-          <Outlet />
+          <CartProvider>
+            <NavBar />
+            <Outlet />
+          </CartProvider>
         </SearchBarContext.Provider>
         {visibleHamburgerMenu && <HamburgerMenu />}
       </HamburgerMenuContext.Provider>

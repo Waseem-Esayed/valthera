@@ -1,6 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
 import { SearchBarContext } from "../../context/SearchBarContext";
-import { useSelector } from "react-redux";
 import brandLogo from "../../assets/images/brand-logo.svg";
 import SearchIcon from "../../assets/images/search-icon.svg";
 import userIcon from "../../assets/images/user-icon.svg";
@@ -8,6 +7,7 @@ import cartIcon from "../../assets/images/cart-icon.svg";
 import hamburgerIcon from "../../assets/images/hamburger-icon.svg";
 import { useContext } from "react";
 import { HamburgerMenuContext } from "../../context/HamburgerMenuContext";
+import { CartContext } from "../../context/CartContext";
 
 const NavLinkElement = ({
   destination,
@@ -20,7 +20,8 @@ const NavLinkElement = ({
     <li>
       <NavLink
         to={`/${destination}`}
-        className="flex flex-col items-center gap-1">
+        className="flex flex-col items-center gap-1"
+      >
         {({ isActive }) => (
           <>
             <p className=" text-[#374151] text-sm font-semibold tracking-wide uppercase">
@@ -37,7 +38,7 @@ const NavLinkElement = ({
 const NavBar = () => {
   const { setVisibleSearchBar } = useContext(SearchBarContext);
   const { setVisibleHamburgerMenu } = useContext(HamburgerMenuContext);
-  const cartProductAmount = useSelector((state) => state.cart.length);
+  const cartProductAmount = useContext(CartContext).cart.length;
 
   function makeSearchBarVisible() {
     setVisibleSearchBar(true);
@@ -63,7 +64,7 @@ const NavBar = () => {
       <nav>
         <ul className="flex items-center justify-end gap-5">
           <li>
-            <NavLink to="/collection" onClick={() => makeSearchBarVisible()}>
+            <NavLink to="/collection" onClick={makeSearchBarVisible}>
               <img src={SearchIcon} alt="Collection" className="w-5" />
             </NavLink>
           </li>
