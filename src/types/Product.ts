@@ -1,5 +1,5 @@
 export default interface Product {
-  id: string;
+  id: number;
   name: string;
   price: number;
   reviews: Reviews;
@@ -45,6 +45,7 @@ export default interface Product {
   features?: string[];
   images: string[];
   bestseller: boolean;
+  inStock: number;
 }
 
 interface Review {

@@ -1,5 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import { SearchBarContext } from "../../context/SearchBarContext";
+import { useSelector } from "react-redux";
 import brandLogo from "../../assets/images/brand-logo.svg";
 import SearchIcon from "../../assets/images/search-icon.svg";
 import userIcon from "../../assets/images/user-icon.svg";
@@ -36,6 +37,7 @@ const NavLinkElement = ({
 const NavBar = () => {
   const { setVisibleSearchBar } = useContext(SearchBarContext);
   const { setVisibleHamburgerMenu } = useContext(HamburgerMenuContext);
+  const cartProductAmount = useSelector((state) => state.cart.length);
 
   function makeSearchBarVisible() {
     setVisibleSearchBar(true);
@@ -71,8 +73,11 @@ const NavBar = () => {
             </Link>
           </li>
           <li>
-            <Link to="/cart">
+            <Link to="/cart" className="relative">
               <img src={cartIcon} alt="Cart" className="w-5" />
+              <span className="absolute w-3 h-3 p-2 text-xs rounded-full bg-black text-white flex justify-center items-center -bottom-1.5 -right-6">
+                {cartProductAmount}
+              </span>
             </Link>
           </li>
           <li>

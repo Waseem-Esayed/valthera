@@ -1,14 +1,42 @@
 import { useParams } from "react-router-dom";
-import products from "../mock-data/products";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import type ProductType from "../types/Product";
+import { addProductToCart } from "../features/cart/cartSlice";
 import { useState } from "react";
 
 const ProductPage = () => {
   const { id } = useParams();
-  const product = products.find((p) => p.id === id);
+  const products = useSelector((state) => state.products);
+  const productsInCart = useSelector((state) => state.cart);
+  const product = products.find((p: ProductType) => p.id === Number(id));
+  const dispatch = useDispatch();
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
 
+  function handleAddToCart(product: ProductType) {
+    if (selectedSize) {
+      dispatch(
+        addProductToCart({
+          id: product.id,
+          name: product.name,
+          image: product.images[0],
+          price: product.price,
+          size: selectedSize,
+          inStock: product.inStock,
+        }),
+      );
+    }
+  }
+
+  const checkDisabled = () => {
+    return (
+      productsInCart.filter((p: ProductType) => p.id === product.id).length ===
+      product?.inStock
+    );
+  };
+
   return (
-    <main className="mx-[4%] py-5 border-t border-[#e5e7eb]">
+    <main className="mx-[4%] pt-10 pb-5 border-t border-[#e5e7eb]">
       <img src={product?.images[0]} alt={product?.name} />
       <img
         src={product?.images[0]}
@@ -19,27 +47,38 @@ const ProductPage = () => {
       <p className="mb-6">{`(${product?.reviewCount})`}</p>
       <h2 className="text-3xl font-medium mb-4.5">{`$${product?.price}`}</h2>
       <p className="text-[#6d7280] mb-7">{product?.shortDescription}</p>
-      <p className="mb-4">Select Size</p>
+      <p className="mb-3.5">Select Size</p>
       <div className="flex gap-2 mb-7.5">
-        {product?.availableSizes.map((size, i) => (
+        {product?.availableSizes.map((size: string, i: number) => (
           <button
             key={i}
             value={size}
             onClick={(e) => setSelectedSize(e.currentTarget.value)}
-            className={`bg-gray-100 py-2 px-4 border ${selectedSize === size ? "border-[#f97316]" : "border-[#e5e7eb]"} cursor-pointer`}>
+            disabled={checkDisabled()}
+            className={`bg-gray-100 py-2 px-4 border disabled:border-[#e5e7eb] disabled:cursor-default ${selectedSize === size ? "border-[#f97316]" : "border-[#e5e7eb]"} cursor-pointer`}>
             {size}
           </button>
         ))}
       </div>
-      <button className="mb-12.5 uppercase text-white bg-black text-sm px-8 py-3 tracking-wide border border-[#e5e7eb]">
+      <button
+        onClick={() => product && handleAddToCart(product)}
+        disabled={checkDisabled()}
+        className="uppercase text-white bg-black disabled:bg-gray-700 disabled:cursor-default text-sm px-8 py-3 tracking-wide border border-[#e5e7eb] cursor-pointer">
         add to cart
       </button>
-      {product?.features?.map((feature, i) => (
-        <p key={i} className="text-sm text-[#6d7280]">
+      {checkDisabled() && (
+        <p className="text-xs text-red-600 capitalize mt-2">
+          not enough in stock
+        </p>
+      )}
+      <hr className="border-[#e5e7eb] mt-9 mb-7" />
+      {product?.features?.map((feature: string[], i: number) => (
+        <p key={i} className="text-sm text-[#6d7280] mb-1">
+          {"- "}
           {feature}
         </p>
       ))}
-      <div className="mt-17">
+      <div className="mt-17 grid grid-cols-3">
         <button className="text-sm border border-[#e5e7eb] px-5 py-3 font-semibold">
           Description
         </button>

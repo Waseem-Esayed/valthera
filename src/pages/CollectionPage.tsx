@@ -1,12 +1,12 @@
 import { useContext, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { SearchBarContext } from "../context/SearchBarContext";
+import { useSelector } from "react-redux";
 import filterFunction from "../utils/filterFunction";
 import FilterBox from "../components/ui/FilterCategory";
 import ProductTemplate from "../components/ui/ProductTemplate";
 import SearchBar from "../components/ui/SearchBar";
 import type ProductType from "../types/Product";
-import products from "../mock-data/products";
 import carretRightIcon from "../assets/images/carret-right.svg";
 import carretDownIcon from "../assets/images/carret-down.svg";
 
@@ -16,6 +16,7 @@ const CollectionPage = () => {
   const filterCategories = searchParams.get("categories")?.split(",") ?? [];
   const filterType = searchParams.get("type")?.split(",") ?? [];
   const filterBestseller = searchParams.get("bestseller")?.split(",") ?? [];
+  const products = useSelector((state) => state.products);
   const initialProducts = products;
   const [sortKey, setSortKey] = useState("high-to-low");
   const sortedProducts = [...initialProducts].sort((a, b) => {
@@ -55,7 +56,8 @@ const CollectionPage = () => {
       className={`mx-[4%] ${!visibleSearchBar && "py-11 border-t border-[#e5e7eb]"}`}>
       {visibleSearchBar && <SearchBar />}
       <div className="flex flex-col">
-        <h4 className="uppercase text-xl mb-4">
+        <h4
+          className={`uppercase text-xl ${filterBoxManager[0] === carretRightIcon ? "mb-1.5" : "mb-4"}`}>
           <button
             onClick={() => handleSwitchArrow()}
             className="uppercase flex items-center gap-x-2.5">
@@ -107,6 +109,7 @@ const CollectionPage = () => {
                   imgSrc={p.images[0]}
                   price={p.price}
                   id={p.id}
+                  inStock={p.inStock}
                 />
               );
             })}

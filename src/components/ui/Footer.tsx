@@ -7,14 +7,14 @@ const Footer = () => {
       <div className="flex flex-col justify-between flex-wrap gap-x-10 gap-y-10">
         <div className="flex flex-col gap-4">
           <img src={brandLogo} alt="Valthera" className="w-48" />
-          <p className="text-[#4b5563] text-sm text-wrap max-w-[80%]">
+          <p className="text-[#4b5563] text-sm text-wrap max-w-[95%]">
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text
             ever since the 1500s, when an unknown printer took a galley of type
             and scrambled it to make a type specimen book.
           </p>
         </div>
-        <div className="flex flex-wrap justify-around gap-x-10 gap-y-14">
+        <div className="flex flex-wrap gap-x-[25%] gap-y-14">
           <ResourceNavigation
             resourceType="company"
             resources={[
@@ -38,7 +38,7 @@ const Footer = () => {
           />
         </div>
       </div>
-      <hr className="border-[#e5e7eb] mt-10 mb-5" />
+      <hr className="border border-[#e5e7eb] mt-10 mb-5" />
       <p className="text-sm text-center">
         Copyright 2026@ Valthera - All Right Reserved.
       </p>

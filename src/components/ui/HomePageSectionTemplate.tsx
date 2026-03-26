@@ -28,7 +28,7 @@ const HomePageSectionTemplate = ({
 
   return (
     <section className="flex flex-col justify-center items-center gap-4">
-      <div className="flex items-center">
+      <div className="flex justify-center items-center">
         <h3 className="text-3xl text-center uppercase text-[#6b7280] font-medium flex justify-center items-center tracking-wide flex-wrap">
           {`${sectionTitleFirstPart} `}
           <span className="text-[#374151] ml-2 text-wrap">
@@ -51,6 +51,7 @@ const HomePageSectionTemplate = ({
                 imgSrc={p.images[0]}
                 price={p.price}
                 id={p.id}
+                inStock={p.inStock}
               />
             );
           })}

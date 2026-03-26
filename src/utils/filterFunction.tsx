@@ -8,11 +8,11 @@ export default function filterFunction(
   const finalResult: ProductType[] = [];
   if (filterOpt.length > 0) {
     filterOpt.forEach((filter) => {
-      const holderArray = initialArray.filter((product) => {
+      const holderArray = initialArray.filter((p) => {
         if (filter !== "bestseller") {
-          return product[key as keyof ProductType] === filter;
+          return p[key as keyof ProductType] === filter;
         } else {
-          return product[key as keyof ProductType] === true;
+          return p[key as keyof ProductType] === true;
         }
       });
       finalResult.push(...holderArray);
