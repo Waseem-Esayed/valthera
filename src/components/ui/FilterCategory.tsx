@@ -32,7 +32,7 @@ const FilterBox = ({ type, options }: filterBoxType) => {
         {type}
       </h5>
       <ul className="flex flex-col gap-2">
-        {options.map((option, i) => (
+        {options.map((option: string, i: number) => (
           <li key={i} className="flex items-center gap-x-2.5">
             <input
               type="checkbox"
