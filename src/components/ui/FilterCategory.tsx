@@ -1,7 +1,7 @@
-import type filterBoxType from "../../types/FilterBox";
+import type FilterBoxType from "../../types/FilterBox";
 import { useSearchParams } from "react-router-dom";
 
-const FilterBox = ({ type, options }: filterBoxType) => {
+const FilterBox = ({ type, options }: FilterBoxType) => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   function handleChangeParams(option: string, isChecked: boolean) {
