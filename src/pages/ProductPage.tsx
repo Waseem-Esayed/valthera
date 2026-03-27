@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import type ProductType from "../types/Product";
 import { useContext, useState } from "react";
-import { CartContext } from "../context/CartContext";
+import { CartContext } from "../context/CartProvider";
 import type { RootState } from "../app/store";
 
 const ProductPage = () => {
@@ -51,8 +51,7 @@ const ProductPage = () => {
             value={size}
             onClick={(e) => setSelectedSize(e.currentTarget.value)}
             disabled={checkDisabled()}
-            className={`bg-gray-100 py-2 px-4 border disabled:border-[#e5e7eb] disabled:cursor-default ${selectedSize === size ? "border-[#f97316]" : "border-[#e5e7eb]"} cursor-pointer`}
-          >
+            className={`bg-gray-100 py-2 px-4 border disabled:border-[#e5e7eb] disabled:cursor-default ${selectedSize === size ? "border-[#f97316]" : "border-[#e5e7eb]"} cursor-pointer`}>
             {size}
           </button>
         ))}
@@ -60,8 +59,7 @@ const ProductPage = () => {
       <button
         onClick={() => product && handleAddToCart(product)}
         disabled={checkDisabled()}
-        className="uppercase text-white bg-black disabled:bg-gray-700 disabled:cursor-default text-sm px-8 py-3 tracking-wide border border-[#e5e7eb] cursor-pointer"
-      >
+        className="uppercase text-white bg-black disabled:bg-gray-700 disabled:cursor-default text-sm px-8 py-3 tracking-wide border border-[#e5e7eb] cursor-pointer">
         add to cart
       </button>
       {checkDisabled() && (

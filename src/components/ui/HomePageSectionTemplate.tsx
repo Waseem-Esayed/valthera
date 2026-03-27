@@ -51,7 +51,6 @@ const HomePageSectionTemplate = ({
                 imgSrc={p.images[0]}
                 price={p.price}
                 id={p.id}
-                inStock={p.inStock}
               />
             );
           })}

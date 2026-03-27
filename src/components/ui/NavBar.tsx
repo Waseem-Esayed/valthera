@@ -7,7 +7,7 @@ import cartIcon from "../../assets/images/cart-icon.svg";
 import hamburgerIcon from "../../assets/images/hamburger-icon.svg";
 import { useContext } from "react";
 import { HamburgerMenuContext } from "../../context/HamburgerMenuContext";
-import { CartContext } from "../../context/CartContext";
+import { CartContext } from "../../context/CartProvider";
 
 const NavLinkElement = ({
   destination,
@@ -20,8 +20,7 @@ const NavLinkElement = ({
     <li>
       <NavLink
         to={`/${destination}`}
-        className="flex flex-col items-center gap-1"
-      >
+        className="flex flex-col items-center gap-1">
         {({ isActive }) => (
           <>
             <p className=" text-[#374151] text-sm font-semibold tracking-wide uppercase">

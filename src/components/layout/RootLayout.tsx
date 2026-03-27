@@ -5,7 +5,7 @@ import HamburgerMenu from "../ui/HamburgerMenu";
 import NavBar from "../ui/NavBar";
 import Footer from "../ui/Footer";
 import { useState } from "react";
-import { CartProvider } from "../../context/CartContext";
+import { CartProvider } from "../../context/CartProvider";
 
 const RootLayout = () => {
   const [visibleSearchBar, setVisibleSearchBar] = useState(false);

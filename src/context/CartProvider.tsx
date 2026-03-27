@@ -1,35 +1,26 @@
-import { createContext, useState } from "react";
+import { useState } from "react";
+import { CartContext } from "./CartContex";
 import type CartProductType from "../types/CartProduct";
-
-type CartContextType = {
-  cart: CartProductType[];
-  addToCart: (product: CartProductType) => void;
-};
-
-export const CartContext = createContext<CartContextType>({
-  cart: [],
-  addToCart: () => {},
-});
 
 export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   const [cart, setCart] = useState<CartProductType[]>([]);
 
   function addToCart(product: CartProductType) {
     setCart((prev) => {
-      const exisitingProducts = prev.filter((p) => p.id === product.id);
-      const amountInCart = exisitingProducts.length;
+      const existingProducts = prev.filter((p) => p.id === product.id);
+      const amountInCart = existingProducts.length;
 
       if (amountInCart < product.inStock) {
-        const existingSize = exisitingProducts.find(
+        const existingSize = existingProducts.find(
           (p) => p.size === product.size,
         );
         if (existingSize) {
-          const indexOfExsiting = exisitingProducts.indexOf(existingSize);
-          exisitingProducts.splice(indexOfExsiting, 1);
+          const indexOfExsiting = existingProducts.indexOf(existingSize);
+          existingProducts.splice(indexOfExsiting, 1);
 
           console.log();
           return [
-            ...exisitingProducts,
+            ...existingProducts,
             { ...existingSize, amount: existingSize.amount + 1 },
           ];
         } else {
@@ -47,3 +38,5 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
     </CartContext.Provider>
   );
 };
+export { CartContext };
+

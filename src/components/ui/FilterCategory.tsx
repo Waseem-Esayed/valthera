@@ -1,4 +1,4 @@
-import type filterBoxType from "../../types/filterBox";
+import type filterBoxType from "../../types/FilterBox";
 import { useSearchParams } from "react-router-dom";
 
 const FilterBox = ({ type, options }: filterBoxType) => {
@@ -37,7 +37,7 @@ const FilterBox = ({ type, options }: filterBoxType) => {
             <input
               type="checkbox"
               id={type + "-" + option}
-              className="h-3.5 aspect-square cursor-pointer"
+              className="h-4 cursor-pointer"
               checked={
                 searchParams.get(type)?.split(",").includes(option) ?? false
               }
@@ -45,8 +45,7 @@ const FilterBox = ({ type, options }: filterBoxType) => {
             />
             <label
               htmlFor={type + "-" + option}
-              className="capitalize text-[#374151] text-sm font-light cursor-pointer"
-            >
+              className="capitalize text-[#374151] text-sm font-light cursor-pointer">
               {option}
             </label>
           </li>

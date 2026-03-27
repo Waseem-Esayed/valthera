@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { CartContext } from "../context/CartContext";
+import { CartContext } from "../context/CartProvider";
 import type CartProductType from "../types/CartProduct";
 import trashIcon from "../assets/images/trash-icon.svg";
 
@@ -35,8 +35,7 @@ const CartPage = () => {
                   <p
                     className={
                       "text-sm bg-gray-100 py-0.5 px-2 border border-[#e5e7eb] h-fit"
-                    }
-                  >
+                    }>
                     {product.size}
                   </p>
                 </div>
