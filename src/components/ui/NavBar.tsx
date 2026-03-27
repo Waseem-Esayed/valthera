@@ -8,6 +8,7 @@ import hamburgerIcon from "../../assets/images/hamburger-icon.svg";
 import { useContext } from "react";
 import { HamburgerMenuContext } from "../../context/HamburgerMenuContext";
 import { CartContext } from "../../context/CartProvider";
+import type CartProductType from "../../types/CartProduct";
 
 const NavLinkElement = ({
   destination,
@@ -20,7 +21,8 @@ const NavLinkElement = ({
     <li>
       <NavLink
         to={`/${destination}`}
-        className="flex flex-col items-center gap-1">
+        className="flex flex-col items-center gap-1"
+      >
         {({ isActive }) => (
           <>
             <p className=" text-[#374151] text-sm font-semibold tracking-wide uppercase">
@@ -37,7 +39,10 @@ const NavLinkElement = ({
 const NavBar = () => {
   const { setVisibleSearchBar } = useContext(SearchBarContext);
   const { setVisibleHamburgerMenu } = useContext(HamburgerMenuContext);
-  const cartProductAmount = useContext(CartContext).cart.length;
+  const cartProductAmount = useContext(CartContext).cart.reduce(
+    (acc: number, curr: CartProductType) => acc + curr.amount,
+    0,
+  );
 
   function makeSearchBarVisible() {
     setVisibleSearchBar(true);

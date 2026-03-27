@@ -15,12 +15,11 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
           (p) => p.size === product.size,
         );
         if (existingSize) {
-          const indexOfExsiting = existingProducts.indexOf(existingSize);
-          existingProducts.splice(indexOfExsiting, 1);
+          const indexOfExsiting = prev.indexOf(existingSize);
+          const arrayWithoutPrev = prev.toSpliced(indexOfExsiting, 1);
 
-          console.log();
           return [
-            ...existingProducts,
+            ...arrayWithoutPrev,
             { ...existingSize, amount: existingSize.amount + 1 },
           ];
         } else {
@@ -39,4 +38,3 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   );
 };
 export { CartContext };
-

@@ -1,7 +1,5 @@
-import { useEffect, useState } from "react";
 import ProductTemplate from "./ProductTemplate";
 import type ProductType from "../../types/Product";
-import SkeletonProduct from "./SkeletonProduct";
 
 type HomePageSectionTemplateType = {
   sectionTitleFirstPart: string;
@@ -16,16 +14,6 @@ const HomePageSectionTemplate = ({
   sectionDescription,
   filteredProducts,
 }: HomePageSectionTemplateType) => {
-  const [products, setProducts] = useState<ProductType[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setProducts(filteredProducts);
-      setLoading(false);
-    }, 1000);
-  }, [filteredProducts]);
-
   return (
     <section className="flex flex-col justify-center items-center gap-4">
       <div className="flex justify-center items-center">
@@ -42,24 +30,17 @@ const HomePageSectionTemplate = ({
       </p>
 
       <div className="w-full grid grid-cols-2 gap-x-4 gap-y-7">
-        {!loading &&
-          products.map((p) => {
-            return (
-              <ProductTemplate
-                key={p.id}
-                title={p.name}
-                imgSrc={p.images[0]}
-                price={p.price}
-                id={p.id}
-              />
-            );
-          })}
-      </div>
-      <div className="w-full grid grid-cols-2 gap-x-4 gap-y-7">
-        {loading &&
-          Array.from({ length: 10 }).map((_, i) => {
-            return <SkeletonProduct key={i} />;
-          })}
+        {filteredProducts.map((p) => {
+          return (
+            <ProductTemplate
+              key={p.id}
+              title={p.name}
+              imgSrc={p.images[0]}
+              price={p.price}
+              id={p.id}
+            />
+          );
+        })}
       </div>
     </section>
   );
