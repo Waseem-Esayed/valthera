@@ -15,8 +15,7 @@ const RootLayout = () => {
     <>
       <HamburgerMenuContext.Provider value={{ setVisibleHamburgerMenu }}>
         <SearchBarContext.Provider
-          value={{ visibleSearchBar, setVisibleSearchBar }}
-        >
+          value={{ visibleSearchBar, setVisibleSearchBar }}>
           <CartProvider>
             <NavBar />
             <Outlet />
