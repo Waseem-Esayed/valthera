@@ -34,7 +34,7 @@ const ProductPage = () => {
 
   return (
     <main className="mx-[4%] pt-10 pb-5 border-t border-[#e5e7eb]">
-      {/* <img src={product?.images[0]} alt={product?.name} /> */}
+      <img src={product?.images[0]} alt={product?.name} />
       <img
         src={product?.images[0]}
         alt={product?.name}
