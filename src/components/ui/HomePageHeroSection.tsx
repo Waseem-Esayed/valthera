@@ -15,7 +15,7 @@ const HomePageHeroSection = () => {
             latest arrivals
           </h2>
           <div className="flex items-center">
-            <p className="text-md font-semibold text-[#414141] uppercase text-sm">
+            <p className="font-semibold text-[#414141] uppercase text-sm">
               shop now
             </p>
             <hr className="w-9 border-[#414141] ml-3 rounded-full" />

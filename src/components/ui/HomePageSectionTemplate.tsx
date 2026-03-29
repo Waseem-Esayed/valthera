@@ -25,7 +25,7 @@ const HomePageSectionTemplate = ({
         </h3>
         <hr className="w-9 ml-2.5 border-[0.5] border-[#374151]" />
       </div>
-      <p className="text-sm text-[#4b5563] mb-4 text-center w-[75%]">
+      <p className="text-sm text-[#4b5563] mb-4 text-center w-[85%]">
         {sectionDescription}
       </p>
 

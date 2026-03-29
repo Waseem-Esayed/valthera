@@ -9,7 +9,7 @@ const SearchBar = () => {
   const [debouncedSearchValue, setDebouncedSearchValue] = useState("");
   useEffect(() => {
     const timeoutId = setTimeout(() => {
-      setSearchBarValue(debouncedSearchValue);
+      setSearchBarValue(debouncedSearchValue.trim());
     }, 300);
 
     return () => clearTimeout(timeoutId);
@@ -22,6 +22,7 @@ const SearchBar = () => {
           type="text"
           placeholder="Search"
           className="outline-none text-sm border border-[#9ca3af] rounded-full px-5 py-2 w-full"
+          value={debouncedSearchValue}
           onChange={(e) => setDebouncedSearchValue(e.currentTarget.value)}
         />
         <img

@@ -127,12 +127,17 @@ const CollectionPage = () => {
                 );
               })}
           </div>
-          <p className="text-sm mt-3 mb-1.5">
-            No results for "<strong>{searchBarValue}</strong>"
-          </p>
-          <p className="text-xs">
-            Check your spelling or try searching for something less specific.
-          </p>
+          {filteredArray.length === 0 && (
+            <>
+              <p className="mt-3 mb-1.5">
+                No results for "<strong>{searchBarValue}</strong>"
+              </p>
+              <p className="text-sm">
+                Check your spelling or try searching for something less
+                specific.
+              </p>
+            </>
+          )}
         </div>
       </div>
     </main>

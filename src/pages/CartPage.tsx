@@ -84,7 +84,7 @@ const CartPage = () => {
         <span>$ {total.toFixed(2)}</span>
       </div>
       <div className="flex justify-end">
-        <button className="uppercase bg-black text-white text-sm px-8 py-3 mt-5">
+        <button className="uppercase bg-black text-white text-sm px-8 py-3 mt-5 cursor-pointer">
           proceed to checkout
         </button>
       </div>

@@ -8,10 +8,10 @@ const Footer = () => {
         <div className="flex flex-col gap-4">
           <img src={brandLogo} alt="Valthera" className="w-48" />
           <p className="text-[#4b5563] text-sm text-wrap max-w-[95%]">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book.
+            Welcome to Valthera, a modern e-commerce interface built to explore
+            React, TypeScript, and state management. This project focuses on a
+            clean user experience, responsive design, and seamless navigation.
+            Browse through our demo products and test the cart functionality!
           </p>
         </div>
         <div className="flex flex-wrap gap-x-[25%] gap-y-14">

@@ -12,7 +12,7 @@ const BestSellerSection = () => {
     <HomePageSectionTemplate
       sectionTitleFirstPart="best"
       sectionTitleSecondPart="sellers"
-      sectionDescription="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the."
+      sectionDescription="Tried, tested, and loved. Discover the products that define the Valthera experience."
       filteredProducts={bestSellerProducts}
     />
   );

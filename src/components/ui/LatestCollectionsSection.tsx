@@ -11,7 +11,7 @@ const LatestCollectionsSection = () => {
     <HomePageSectionTemplate
       sectionTitleFirstPart="latest"
       sectionTitleSecondPart="collections"
-      sectionDescription="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the."
+      sectionDescription="Fresh arrivals, refined designs. Explore our newest pieces, where modern aesthetics meet high-quality craftsmanship."
       filteredProducts={top10LatestCollections}
     />
   );
