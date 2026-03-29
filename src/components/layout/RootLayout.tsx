@@ -10,12 +10,13 @@ import { CartProvider } from "../../context/CartProvider";
 const RootLayout = () => {
   const [visibleSearchBar, setVisibleSearchBar] = useState(false);
   const [visibleHamburgerMenu, setVisibleHamburgerMenu] = useState(false);
+  const [searchBarValue, setSearchBarValue] = useState("");
 
   return (
     <>
       <HamburgerMenuContext.Provider value={{ setVisibleHamburgerMenu }}>
         <SearchBarContext.Provider
-          value={{ visibleSearchBar, setVisibleSearchBar }}>
+          value={{ visibleSearchBar, setVisibleSearchBar, searchBarValue, setSearchBarValue }}>
           <CartProvider>
             <NavBar />
             <Outlet />

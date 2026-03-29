@@ -3,6 +3,7 @@ import {
   createRoutesFromElements,
   RouterProvider,
   Route,
+  Navigate,
 } from "react-router-dom";
 
 import RootLayout from "../components/layout/RootLayout";
@@ -27,6 +28,7 @@ const router = createBrowserRouter(
     <>
       <Route path="/" element={<RootLayout />}>
         <Route index element={<HomePage />} />
+        <Route path="home" element={<Navigate to="/" />} />
         <Route path="collection" element={<CollectionPage />} />
         <Route path="about" element={<AboutPage />} />
         <Route path="contact" element={<ContactPage />} />

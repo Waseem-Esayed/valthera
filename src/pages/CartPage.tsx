@@ -4,7 +4,7 @@ import type CartProductType from "../types/CartProduct";
 import trashIcon from "../assets/images/trash-icon.svg";
 
 const CartPage = () => {
-  const { cart } = useContext(CartContext);
+  const { cart, updateAmount, deleteProduct } = useContext(CartContext);
 
   const subtotal = cart.reduce((sum, p) => sum + p.price, 0);
   const shipping = 10;
@@ -45,10 +45,16 @@ const CartPage = () => {
               <input
                 type="number"
                 className="border border-[#e5e7eb] w-11  px-1.5 py-1"
-                defaultValue={product.amount}
+                value={product.amount}
+                onChange={(e) => updateAmount(product, Number(e.target.value))}
               />
               <button>
-                <img src={trashIcon} alt="Remove" className="w-5" />
+                <img
+                  src={trashIcon}
+                  alt="Remove"
+                  className="w-5 cursor-pointer"
+                  onClick={() => deleteProduct(product)}
+                />
               </button>
             </div>
           </div>

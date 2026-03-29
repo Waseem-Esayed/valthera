@@ -9,9 +9,8 @@ const ProductPage = () => {
   const { id } = useParams();
   const products = useSelector((state: RootState) => state.products);
   const product = products.find((p: ProductType) => p.id === Number(id));
-  const [selectedSize, setSelectedSize] = useState<string | null>(null);
-
   const { cart, addToCart } = useContext(CartContext);
+  const [selectedSize, setSelectedSize] = useState<string | null>(null);
 
   function handleAddToCart(product: ProductType) {
     if (selectedSize) {
@@ -27,13 +26,15 @@ const ProductPage = () => {
     }
   }
 
-  const checkDisabled = () => {
-    return cart.filter((p) => p.id === product?.id).length === product?.inStock;
-  };
+  const amountInCart = cart
+    .filter((p) => p.id === Number(id))
+    .reduce((acc, curr) => acc + curr.amount, 0);
+
+  const isOutOfStock = product ? amountInCart >= product.inStock : false;
 
   return (
     <main className="mx-[4%] pt-10 pb-5 border-t border-[#e5e7eb]">
-      <img src={product?.images[0]} alt={product?.name} />
+      {/* <img src={product?.images[0]} alt={product?.name} /> */}
       <img
         src={product?.images[0]}
         alt={product?.name}
@@ -50,7 +51,7 @@ const ProductPage = () => {
             key={i}
             value={size}
             onClick={(e) => setSelectedSize(e.currentTarget.value)}
-            disabled={checkDisabled()}
+            disabled={isOutOfStock}
             className={`bg-gray-100 py-2 px-4 border disabled:border-[#e5e7eb] disabled:cursor-default ${selectedSize === size ? "border-[#f97316]" : "border-[#e5e7eb]"} cursor-pointer`}>
             {size}
           </button>
@@ -58,11 +59,11 @@ const ProductPage = () => {
       </div>
       <button
         onClick={() => product && handleAddToCart(product)}
-        disabled={checkDisabled()}
+        disabled={isOutOfStock}
         className="uppercase text-white bg-black disabled:bg-gray-700 disabled:cursor-default text-sm px-8 py-3 tracking-wide border border-[#e5e7eb] cursor-pointer">
         add to cart
       </button>
-      {checkDisabled() && (
+      {isOutOfStock && (
         <p className="text-xs text-red-600 capitalize mt-2">
           not enough in stock
         </p>

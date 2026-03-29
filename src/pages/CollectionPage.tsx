@@ -14,6 +14,7 @@ import type { RootState } from "../app/store";
 const CollectionPage = () => {
   const [searchParams] = useSearchParams();
   const { visibleSearchBar } = useContext(SearchBarContext);
+  const { searchBarValue } = useContext(SearchBarContext);
   const filterCategories = searchParams.get("categories")?.split(",") ?? [];
   const filterType = searchParams.get("type")?.split(",") ?? [];
   const filterBestseller = searchParams.get("bestseller")?.split(",") ?? [];
@@ -46,25 +47,33 @@ const CollectionPage = () => {
     bestseller: filterBestseller,
   };
 
-  let filteredArary: ProductType[] = sortedProducts;
+  let filteredArray: ProductType[] = sortedProducts.filter((p) => {
+    let tempName = p.name.toLowerCase();
+    const searchChars = searchBarValue.toLowerCase().split("");
+
+    return searchChars.every((char) => {
+      if (tempName.includes(char)) {
+        tempName = tempName.replace(char, "");
+        return true;
+      }
+      return false;
+    });
+  });
 
   Object.entries(filterAll).forEach(([key, filter]) => {
-    filteredArary = [...filterFunction(filter, filteredArary, key)];
+    filteredArray = [...filterFunction(filter, filteredArray, key)];
   });
 
   return (
     <main
-      className={`mx-[4%] ${!visibleSearchBar && "py-11 border-t border-[#e5e7eb]"}`}
-    >
+      className={`mx-[4%] ${!visibleSearchBar && "py-11 border-t border-[#e5e7eb]"}`}>
       {visibleSearchBar && <SearchBar />}
       <div className="flex flex-col">
         <h4
-          className={`uppercase text-xl ${filterBoxManager[0] === carretRightIcon ? "mb-1.5" : "mb-4"}`}
-        >
+          className={`uppercase text-xl ${filterBoxManager[0] === carretRightIcon ? "mb-1.5" : "mb-4"}`}>
           <button
             onClick={handleSwitchArrow}
-            className="uppercase flex items-center gap-x-2.5"
-          >
+            className="uppercase flex items-center gap-x-2.5">
             filters
             <img
               src={filterBoxManager[0]}
@@ -99,25 +108,31 @@ const CollectionPage = () => {
               name="sort"
               className="border-2 border-[#d1d5db] px-3 py-2.5 text-sm"
               value={sortKey}
-              onChange={(e) => setSortKey(e.target.value)}
-            >
+              onChange={(e) => setSortKey(e.target.value)}>
               <option value="low-to-high">Sort by: Low to High</option>
               <option value="high-to-low">Sort by: High to Low</option>
             </select>
           </div>
           <div className="w-full grid grid-cols-2 gap-x-4 gap-y-7">
-            {filteredArary.map((p) => {
-              return (
-                <ProductTemplate
-                  key={p.id}
-                  title={p.name}
-                  imgSrc={p.images[0]}
-                  price={p.price}
-                  id={p.id}
-                />
-              );
-            })}
+            {filteredArray.length > 0 &&
+              filteredArray.map((p) => {
+                return (
+                  <ProductTemplate
+                    key={p.id}
+                    title={p.name}
+                    imgSrc={p.images[0]}
+                    price={p.price}
+                    id={p.id}
+                  />
+                );
+              })}
           </div>
+          <p className="text-sm mt-3 mb-1.5">
+            No results for "<strong>{searchBarValue}</strong>"
+          </p>
+          <p className="text-xs">
+            Check your spelling or try searching for something less specific.
+          </p>
         </div>
       </div>
     </main>

@@ -8,20 +8,19 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   function addToCart(product: CartProductType) {
     setCart((prev) => {
       const existingProducts = prev.filter((p) => p.id === product.id);
-      const amountInCart = existingProducts.length;
+      const amountInCart =
+        existingProducts.find((p) => p.size === product.size)?.amount ?? 0;
+      const existingSize = existingProducts.find(
+        (p) => p.size === product.size,
+      );
 
       if (amountInCart < product.inStock) {
-        const existingSize = existingProducts.find(
-          (p) => p.size === product.size,
-        );
         if (existingSize) {
-          const indexOfExsiting = prev.indexOf(existingSize);
-          const arrayWithoutPrev = prev.toSpliced(indexOfExsiting, 1);
-
-          return [
-            ...arrayWithoutPrev,
-            { ...existingSize, amount: existingSize.amount + 1 },
-          ];
+          return prev.map((p) => {
+            if (p.id === product.id && p.size === product.size)
+              return { ...p, amount: p.amount + 1 };
+            return p;
+          });
         } else {
           return [...prev, product];
         }
@@ -31,8 +30,35 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
     });
   }
 
+  function updateAmount(product: CartProductType, newAmount: number) {
+    if (newAmount === 0) {
+      return;
+    }
+    setCart((prev) => {
+      const sumAmount = prev
+        .filter((p) => p.id === product.id)
+        .reduce((acc, curr) => acc + curr.amount, 0);
+
+      if (sumAmount < product.inStock || newAmount < product.amount) {
+        return prev.map((p) => {
+          if (p.id === product.id && p.size === product.size)
+            return { ...p, amount: newAmount };
+          return p;
+        });
+      }
+      return prev;
+    });
+  }
+
+  function deleteProduct(product: CartProductType) {
+    setCart((prev) => {
+      return prev.filter((p) => p.id !== product.id || p.size !== product.size);
+    });
+  }
+
   return (
-    <CartContext.Provider value={{ cart, addToCart }}>
+    <CartContext.Provider
+      value={{ cart, addToCart, updateAmount, deleteProduct }}>
       {children}
     </CartContext.Provider>
   );
