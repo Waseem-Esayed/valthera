@@ -13,9 +13,8 @@ const HamburgerMenu = () => {
   return (
     <nav className="hamburger-menu bg-white w-screen h-screen fixed top-0 bottom-0 left-0 right-0">
       <button
-        className="px-4 py-3 flex gap-3 text-[##4d5563]"
-        onClick={() => setVisibleHamburgerMenu(false)}
-      >
+        className="px-4 py-3 flex items-center gap-3 text-[#4d5563]"
+        onClick={() => setVisibleHamburgerMenu(false)}>
         <img src={carretLeftIcon} alt="Back" className="w-3" />
         Back
       </button>
@@ -24,8 +23,7 @@ const HamburgerMenu = () => {
           <NavLink
             to="/"
             onClick={() => setVisibleHamburgerMenu(false)}
-            className={NavLinkStyles}
-          >
+            className={NavLinkStyles}>
             HOME
           </NavLink>
         </li>
@@ -33,8 +31,7 @@ const HamburgerMenu = () => {
           <NavLink
             to="/collection"
             onClick={() => setVisibleHamburgerMenu(false)}
-            className={NavLinkStyles}
-          >
+            className={NavLinkStyles}>
             COLLECTION
           </NavLink>
         </li>
@@ -42,8 +39,7 @@ const HamburgerMenu = () => {
           <NavLink
             to="/about"
             onClick={() => setVisibleHamburgerMenu(false)}
-            className={NavLinkStyles}
-          >
+            className={NavLinkStyles}>
             ABOUT
           </NavLink>
         </li>
@@ -51,8 +47,7 @@ const HamburgerMenu = () => {
           <NavLink
             to="/contact"
             onClick={() => setVisibleHamburgerMenu(false)}
-            className={NavLinkStyles}
-          >
+            className={NavLinkStyles}>
             CONTACT
           </NavLink>
         </li>

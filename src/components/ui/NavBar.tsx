@@ -21,8 +21,7 @@ const NavLinkElement = ({
     <li>
       <NavLink
         to={`/${destination}`}
-        className="flex flex-col items-center gap-1"
-      >
+        className="flex flex-col items-center gap-1">
         {({ isActive }) => (
           <>
             <p className=" text-[#374151] text-sm font-semibold tracking-wide uppercase">
@@ -48,7 +47,7 @@ const NavBar = () => {
     setVisibleSearchBar(true);
   }
 
-  function testFunc() {
+  function toggleHaburgerMenu() {
     setVisibleHamburgerMenu(true);
   }
 
@@ -57,7 +56,7 @@ const NavBar = () => {
       <NavLink to="/">
         <img src={brandLogo} alt="Valthera" className="w-45 flex-[0.2]" />
       </NavLink>
-      <nav className="left-1/2 -translate-x-1/2 hidden">
+      <nav className="hidden min-[650px]:block">
         <ul className="flex justify-center gap-6">
           <NavLinkElement title="home" destination="/" />
           <NavLinkElement title="collection" destination="collection" />
@@ -80,13 +79,13 @@ const NavBar = () => {
           <li>
             <Link to="/cart" className="relative">
               <img src={cartIcon} alt="Cart" className="w-5" />
-              <span className="absolute w-3 h-3 p-2 text-xs rounded-full bg-black text-white flex justify-center items-center -bottom-1.5 -right-6">
+              <span className="absolute py-0.5 px-1.5 text-[0.55rem] rounded-full bg-black text-white flex justify-center items-center -bottom-1.5 left-[--spacing(2.2)]">
                 {cartProductAmount}
               </span>
             </Link>
           </li>
           <li>
-            <button onClick={testFunc}>
+            <button onClick={toggleHaburgerMenu} className="min-[650px]:hidden">
               <img src={hamburgerIcon} alt="Menu" />
             </button>
           </li>

@@ -12,7 +12,7 @@ const LoginForm = ({
   return (
     <form
       action="/"
-      className="w-[90%] flex flex-col justify-center items-center">
+      className="w-[90%] min-[650px]:max-w-[50%] lg:max-w-[42.5%] xl:max-w-[30%] 2xl:max-w-[27.5%] flex flex-col justify-center items-center">
       <div className="flex items-center mb-5">
         <p className="font-prata text-3xl text-[#414141]">Login</p>
         <hr className="w-9 border-[1.25px] bg-black border-[#414141] ml-3 rounded-full" />

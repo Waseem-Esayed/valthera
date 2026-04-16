@@ -6,6 +6,7 @@ import NavBar from "../ui/NavBar";
 import Footer from "../ui/Footer";
 import { useState } from "react";
 import { CartProvider } from "../../context/CartProvider";
+import ScrollToTop from "./ScrollToTop";
 
 const RootLayout = () => {
   const [visibleSearchBar, setVisibleSearchBar] = useState(false);
@@ -14,9 +15,15 @@ const RootLayout = () => {
 
   return (
     <>
+      <ScrollToTop />
       <HamburgerMenuContext.Provider value={{ setVisibleHamburgerMenu }}>
         <SearchBarContext.Provider
-          value={{ visibleSearchBar, setVisibleSearchBar, searchBarValue, setSearchBarValue }}>
+          value={{
+            visibleSearchBar,
+            setVisibleSearchBar,
+            searchBarValue,
+            setSearchBarValue,
+          }}>
           <CartProvider>
             <NavBar />
             <Outlet />

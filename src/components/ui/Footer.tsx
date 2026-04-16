@@ -4,8 +4,8 @@ import brandLogo from "../../assets/images/brand-logo.svg";
 const Footer = () => {
   return (
     <footer className=" mx-[5%] pb-6 pt-35">
-      <div className="flex flex-col justify-between gap-x-10 gap-y-10">
-        <div className="flex flex-col gap-4">
+      <div className="flex flex-col justify-between gap-x-10 gap-y-10 sm:flex-row">
+        <div className="flex flex-col gap-4 sm:flex-[0.45]">
           <img src={brandLogo} alt="Valthera" className="w-48" />
           <p className="text-[#4b5563] text-sm text-wrap max-w-[95%]">
             Welcome to Valthera, a modern e-commerce interface built to explore
@@ -14,7 +14,7 @@ const Footer = () => {
             Browse through our demo products and test the cart functionality!
           </p>
         </div>
-        <div className="flex flex-wrap gap-x-[25%] gap-y-14">
+        <div className="flex justify-center flex-wrap gap-x-[25%] gap-y-14 sm:flex-[0.55] sm:gap-x-[30%]">
           <ResourceNavigation
             resourceType="company"
             resources={[

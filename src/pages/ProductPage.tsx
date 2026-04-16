@@ -33,48 +33,58 @@ const ProductPage = () => {
   const isOutOfStock = product ? amountInCart >= product.inStock : false;
 
   return (
-    <main className="mx-[4%] pt-10 pb-5 border-t border-[#e5e7eb]">
-      <img src={product?.images[0]} alt={product?.name} />
-      <img
-        src={product?.images[0]}
-        alt={product?.name}
-        className="mt-3.5 mb-12.5 w-[22%]"
-      />
-      <h1 className="text-2xl font-medium mb-2.5">{product?.name}</h1>
-      <p className="mb-6">{`(${product?.reviewCount})`}</p>
-      <h2 className="text-3xl font-medium mb-4.5">{`$${product?.price}`}</h2>
-      <p className="text-[#6d7280] mb-7">{product?.shortDescription}</p>
-      <p className="mb-3.5">Select Size</p>
-      <div className="flex gap-2 mb-7.5">
-        {product?.availableSizes.map((size: string, i: number) => (
+    <main className="mx-[4%] pt-10 pb-5 border-t-2 border-[#e5e7eb]">
+      <div className="flex flex-col sm:flex-row sm:gap-x-15">
+        <div className="flex flex-col sm:flex-row sm:gap-x-3.5 sm:items-start sm:w-[40%]">
+          <img
+            src={product?.images[0]}
+            alt={product?.name}
+            className="w-full sm:w-[20%]"
+          />
+          <img
+            src={product?.images[0]}
+            alt={product?.name}
+            className="mt-3.5 mb-12.5 w-[22%] sm:w-[80%] sm:m-0"
+          />
+        </div>
+        <div>
+          <h1 className="text-2xl font-medium mb-2.5">{product?.name}</h1>
+          <p className="mb-6">{`(${product?.reviewCount})`}</p>
+          <h2 className="text-3xl font-medium mb-4.5">{`$${product?.price}`}</h2>
+          <p className="text-[#6d7280] mb-7">{product?.shortDescription}</p>
+          <p className="mb-3.5">Select Size</p>
+          <div className="flex gap-2 mb-7.5">
+            {product?.availableSizes.map((size: string, i: number) => (
+              <button
+                key={i}
+                value={size}
+                onClick={(e) => setSelectedSize(e.currentTarget.value)}
+                disabled={isOutOfStock}
+                className={`bg-gray-100 py-2 px-4 border disabled:border-[#e5e7eb] disabled:cursor-default ${selectedSize === size ? "border-[#f97316]" : "border-[#e5e7eb]"} cursor-pointer`}>
+                {size}
+              </button>
+            ))}
+          </div>
           <button
-            key={i}
-            value={size}
-            onClick={(e) => setSelectedSize(e.currentTarget.value)}
+            onClick={() => product && handleAddToCart(product)}
             disabled={isOutOfStock}
-            className={`bg-gray-100 py-2 px-4 border disabled:border-[#e5e7eb] disabled:cursor-default ${selectedSize === size ? "border-[#f97316]" : "border-[#e5e7eb]"} cursor-pointer`}>
-            {size}
+            className="uppercase text-white bg-black disabled:bg-gray-700 disabled:cursor-default text-sm px-8 py-3 tracking-wide border border-[#e5e7eb] cursor-pointer">
+            add to cart
           </button>
-        ))}
+          {isOutOfStock && (
+            <p className="text-xs text-red-600 capitalize mt-2">
+              not enough in stock
+            </p>
+          )}
+          <hr className="border-[#e5e7eb] mt-9 mb-7" />
+          {product?.features?.map((feature, i) => (
+            <p key={i} className="text-sm text-[#6d7280] mb-1">
+              {"- "}
+              {feature}
+            </p>
+          ))}
+        </div>
       </div>
-      <button
-        onClick={() => product && handleAddToCart(product)}
-        disabled={isOutOfStock}
-        className="uppercase text-white bg-black disabled:bg-gray-700 disabled:cursor-default text-sm px-8 py-3 tracking-wide border border-[#e5e7eb] cursor-pointer">
-        add to cart
-      </button>
-      {isOutOfStock && (
-        <p className="text-xs text-red-600 capitalize mt-2">
-          not enough in stock
-        </p>
-      )}
-      <hr className="border-[#e5e7eb] mt-9 mb-7" />
-      {product?.features?.map((feature, i) => (
-        <p key={i} className="text-sm text-[#6d7280] mb-1">
-          {"- "}
-          {feature}
-        </p>
-      ))}
       <div className="mt-17 grid grid-cols-3">
         <button className="text-sm border border-[#e5e7eb] px-5 py-3 font-semibold">
           Description

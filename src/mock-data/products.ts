@@ -784,7 +784,7 @@ const products: ProductType[] = [
       "https://raw.githubusercontent.com/avinashdm/gs-images/main/forever/p_img20.png",
     ],
     bestseller: false,
-    inStock: 0,
+    inStock: 10,
   },
   {
     id: 38,

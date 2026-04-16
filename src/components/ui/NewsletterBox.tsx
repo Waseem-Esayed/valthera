@@ -1,6 +1,6 @@
 const NewsletterBox = () => {
   return (
-    <section className="flex flex-col justify-center items-center gap-y-3.5 mt-5">
+    <section className="w-full flex flex-col justify-center items-center gap-y-3.5 mt-5">
       <h5 className="text-2xl text-[#1f2937] font-medium">
         Subscribe now & get 20% off
       </h5>
@@ -8,7 +8,9 @@ const NewsletterBox = () => {
         Stay updated with the latest trends and special offers. Sign up now to
         join the Valthera world.
       </p>
-      <form action="/subscribe" className="flex justify-center">
+      <form
+        action="/subscribe"
+        className="flex justify-center sm:max-w-[60%] lg:max-w-[50%] xl:max-w-[40%] 2xl:max-w-[30%]">
         <input
           type="email"
           placeholder="Enter your email"

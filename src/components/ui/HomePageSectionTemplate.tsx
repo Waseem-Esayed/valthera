@@ -25,11 +25,11 @@ const HomePageSectionTemplate = ({
         </h3>
         <hr className="w-9 ml-2.5 border-[0.5] border-[#374151]" />
       </div>
-      <p className="text-sm text-[#4b5563] mb-4 text-center w-[85%]">
+      <p className="text-sm lg:text-base text-[#4b5563] mb-4 text-center w-[85%]">
         {sectionDescription}
       </p>
 
-      <div className="w-full grid grid-cols-2 gap-x-4 gap-y-7">
+      <div className="grid grid-cols-2 min-[650px]:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 gap-x-4 gap-y-7">
         {filteredProducts.map((p) => {
           return (
             <ProductTemplate

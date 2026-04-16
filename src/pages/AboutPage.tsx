@@ -11,30 +11,34 @@ const AboutPage = () => {
         </h3>
         <hr className="w-9 ml-2.5 border-[0.5] border-[#374151]" />
       </div>
-      <img
-        src="https://foreverbuy.in/assets/about_img-BAJyTXw9.png"
-        alt=""
-        className="mb-15"
-      />
-      <p className="text-[#4b5563]">
-        Forever was born out of a passion for innovation and a desire to
-        revolutionize the way people shop online. Our journey began with a
-        simple idea: to provide a platform where customers can easily discover,
-        explore, and purchase a wide range of products from the comfort of their
-        homes. <br /> <br /> Since our inception, we've worked tirelessly to
-        curate a diverse selection of high-quality products that cater to every
-        taste and preference. From fashion and beauty to electronics and home
-        essentials, we offer an extensive collection sourced from trusted brands
-        and suppliers.
-      </p>
-      <p className="font-semibold my-6">Our Mission</p>
-      <p className="text-[#4b5563]">
-        Our mission at Forever is to empower customers with choice, convenience,
-        and confidence. We're dedicated to providing a seamless shopping
-        experience that exceeds expectations, from browsing and ordering to
-        delivery and beyond.
-      </p>
-      <div className="flex items-center mt-8 mb-13">
+      <div className="flex flex-col md:flex-row md:gap-x-13 md:mb-15 justify-center items-center">
+        <img
+          src="https://foreverbuy.in/assets/about_img-BAJyTXw9.png"
+          alt=""
+          className="mb-15 md:min-w-[40%] md:mb-0"
+        />
+        <div className="flex flex-col">
+          <p className="text-[#4b5563]">
+            Forever was born out of a passion for innovation and a desire to
+            revolutionize the way people shop online. Our journey began with a
+            simple idea: to provide a platform where customers can easily
+            discover, explore, and purchase a wide range of products from the
+            comfort of their homes. <br /> <br /> Since our inception, we've
+            worked tirelessly to curate a diverse selection of high-quality
+            products that cater to every taste and preference. From fashion and
+            beauty to electronics and home essentials, we offer an extensive
+            collection sourced from trusted brands and suppliers.
+          </p>
+          <p className="font-semibold my-6">Our Mission</p>
+          <p className="text-[#4b5563]">
+            Our mission at Forever is to empower customers with choice,
+            convenience, and confidence. We're dedicated to providing a seamless
+            shopping experience that exceeds expectations, from browsing and
+            ordering to delivery and beyond.
+          </p>
+        </div>
+      </div>
+      <div className="flex items-center mt-8 mb-5">
         <h3 className="text-xl uppercase text-[#6b7280] flex justify-center items-center tracking-wide flex-wrap">
           why
           <span className="text-[#374151] font-medium ml-2 text-wrap">
@@ -43,7 +47,7 @@ const AboutPage = () => {
         </h3>
         <hr className="w-9 ml-2.5 border-[0.5] border-[#374151]" />
       </div>
-      <div>
+      <div className="pb-20">
         <BrandFeature
           title="Quality Assurance:"
           description="We meticulously select and vet each product to ensure it meets our stringent quality standards."
